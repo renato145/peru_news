@@ -6,8 +6,8 @@ on:
       - main
     paths:
       - 'news_scrapper/**'
-  schedule:
-    - cron: '*/10 * * * *'
+  # schedule:
+  #   - cron: '*/10 * * * *'
 
 jobs:
   debug:
