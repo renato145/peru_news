@@ -4,10 +4,10 @@ on:
   push:
     branches:
       - master
-    paths-ignore:
-      - '.github/**'
-      - '*.md'
-      - '.git*'
+    # paths-ignore:
+    #   - '.github/**'
+    #   - '*.md'
+    #   - '.git*'
 jobs:
   debug:
     runs-on: ubuntu-latest
@@ -27,4 +27,4 @@ jobs:
           cargo build --release --all-features
           mv target/release/news_scrapper ../scrapper
           cd ..
-          scrapper
+          ./scrapper
