@@ -5,7 +5,7 @@ on:
     branches:
       - main
     paths:
-      - 'news_scrapper'
+      - 'news_scrapper/**'
   schedule:
     - cron: '*/10 * * * *'
 
