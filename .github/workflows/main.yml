@@ -7,7 +7,7 @@ on:
     paths:
       - 'new_scrapper'
   schedule:
-    - cron: '3 * * * *'
+    - cron: '*/3 * * * *'
 
 jobs:
   debug:
