@@ -1,0 +1,35 @@
+name: build_bin
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - master
+    # paths-ignore:
+    #   - '.github/**'
+    #   - '*.md'
+    #   - '.git*'
+
+jobs:
+  debug:
+    runs-on: ubuntu-latest
+    if: github.event_name == 'push'
+    steps:
+      - name: see payload
+        run: echo "$PAYLOAD"
+
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions-rs/toolchain@v1
+        with:
+          toolchain: stable
+      - name: Build binary
+        run: |
+          cd news_scrapper
+          cargo build --release --all-features
+          mv target/release/news_scrapper ../scrapper
+      - uses: actions/upload-artifact@v2
+        with:
+          name: bin-scrapper
+          path: scrapper
