@@ -14,3 +14,13 @@ jobs:
     steps:
       - name: see payload
         run: echo "$PAYLOAD"
+
+  launch:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions-rs/toolchain@v1
+        with:
+          toolchain: stable
+      - run: cd news_scrapper && ls
+      - run: cargo build --release --all-features
