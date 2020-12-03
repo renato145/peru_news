@@ -1,4 +1,4 @@
 
 fn main() {
-    print!("Jalow there! Does this work???\n");
+    print!(":)! Does this work???\n");
 }
