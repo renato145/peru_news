@@ -25,6 +25,6 @@ jobs:
       - run: |
           cd news_scrapper
           cargo build --release --all-features
-          mv news_scrapper/target/release/news_scrapper ../news_scrapper
+          mv target/release/news_scrapper ../scrapper
           cd ..
-          news_scrapper
+          scrapper
