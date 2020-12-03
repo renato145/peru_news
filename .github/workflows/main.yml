@@ -23,8 +23,8 @@ jobs:
         with:
           toolchain: stable
       - run: |
-        cd news_scrapper
-        cargo build --release --all-features
-        mv news_scrapper/target/release/news_scrapper ../news_scrapper
-        cd ..
-        news_scrapper
+          cd news_scrapper
+          cargo build --release --all-features
+          mv news_scrapper/target/release/news_scrapper ../news_scrapper
+          cd ..
+          news_scrapper
