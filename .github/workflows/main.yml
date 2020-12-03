@@ -1,9 +1,11 @@
-name: build_bin
+name: Build and launch scrapper
 on:
   workflow_dispatch:
   push:
     branches:
       - master
+    paths:
+      - 'new_scrapper'
     # paths-ignore:
     #   - '.github/**'
     #   - '*.md'
@@ -43,4 +45,6 @@ jobs:
         with:
           name: bin-scrapper
       - name: Run scrapper
-        run: ./scrapper
+        run: |
+          chmod +x scrapper
+          ./scrapper
