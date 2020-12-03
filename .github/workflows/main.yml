@@ -3,11 +3,11 @@ on:
   workflow_dispatch:
   push:
     branches:
-      - master
+      - main
     paths:
       - 'new_scrapper'
   schedule:
-    - cron: '*/3 * * * *'
+    - cron: '*/10 * * * *'
 
 jobs:
   debug:
