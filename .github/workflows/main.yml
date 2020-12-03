@@ -12,13 +12,14 @@ on:
 jobs:
   debug:
     runs-on: ubuntu-latest
-    if: github.event_name == 'push'
+    if: github.event_name != 'workflow_dispatch'
     steps:
       - name: see payload
         run: echo "$PAYLOAD"
 
   build:
     runs-on: ubuntu-latest
+    if: github.event_name != 'schedule'
     steps:
       - uses: actions/checkout@v2
       - uses: actions-rs/toolchain@v1
