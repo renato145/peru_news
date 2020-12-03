@@ -33,3 +33,14 @@ jobs:
         with:
           name: bin-scrapper
           path: scrapper
+
+  launch:
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+      - name: Download binary
+        uses: actions/download-artifact@v2
+        with:
+          name: bin-scrapper
+      - name: Run scrapper
+        run: ./scrapper
