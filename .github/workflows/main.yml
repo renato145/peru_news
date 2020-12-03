@@ -6,10 +6,8 @@ on:
       - master
     paths:
       - 'new_scrapper'
-    # paths-ignore:
-    #   - '.github/**'
-    #   - '*.md'
-    #   - '.git*'
+  schedule:
+    - cron: '3 * * * *'
 
 jobs:
   debug:
