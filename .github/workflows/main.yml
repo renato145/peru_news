@@ -1,0 +1,16 @@
+name: load_news
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - master
+    paths-ignore:
+      - '.github/**'
+      - '*.md'
+      - '.git*'
+jobs:
+  debug:
+    runs-on: ubuntu-latest
+    steps:
+      - name: see payload
+        run: echo "$PAYLOAD"
