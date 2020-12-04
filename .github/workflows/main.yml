@@ -32,6 +32,16 @@ jobs:
           cd news_scrapper
           cargo build --release --all-features
           mv target/release/news_scrapper ../scrapper
+      - name: Create release
+        uses: actions/create-release@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          tag_name: ${{ github.ref }}
+          release_name: Release ${{ github.ref }}
+          draft: false
+          prerelease: false
+
       # - uses: actions/upload-artifact@v2
       #   with:
       #     name: bin-scrapper

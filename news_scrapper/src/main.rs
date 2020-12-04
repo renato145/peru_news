@@ -1,4 +1,4 @@
 
 fn main() {
-    print!(":O! Does this work???\n");
+    print!("testing releases\n");
 }
