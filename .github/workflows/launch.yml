@@ -9,7 +9,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Download last bin
-        uses: dsaltares/fetch-gh-release-asset@latest
+        uses: dsaltares/fetch-gh-release-asset@master
         with:
           repo: "renato145/gh_actions_explore"
           version: "latest"
