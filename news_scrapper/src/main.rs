@@ -1,4 +1,4 @@
 
 fn main() {
-    print!("testing upload asset release v0.0.1\n");
+    print!("test2 upload asset release v0.0.1\n");
 }
