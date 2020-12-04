@@ -1,4 +1,4 @@
 
 fn main() {
-    print!("testing fetch releases v0.0.1\n");
+    print!("testing #2 fetch releases v0.0.1\n");
 }

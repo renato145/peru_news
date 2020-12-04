@@ -35,6 +35,7 @@ jobs:
       - id: getRelease
         uses: pozetroninc/github-action-get-latest-release@master
         with:
+          repository: renato145/gh_actions_explore
           excludes: prerelease, draft
       - name: Upload binary
         run: |
