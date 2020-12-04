@@ -1,4 +1,4 @@
 
 fn main() {
-    print!(":D! Does this work???\n");
+    print!(":O! Does this work???\n");
 }
