@@ -16,7 +16,6 @@ jobs:
           file: "scrapper"
       - name: Run scrapper
         run: |
-          ls -la
           sudo chown $USER:$GROUP scrapper
           chmod +x scrapper
           ./scrapper
