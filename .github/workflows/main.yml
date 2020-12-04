@@ -31,18 +31,25 @@ jobs:
         run: |
           cd news_scrapper
           cargo build --release --all-features
-          mv target/release/news_scrapper ../scrapper
-      - id: getRelease
-        uses: pozetroninc/github-action-get-latest-release@master
+          mv target/release/news_scrapper scrapper
+
+      - id: fetch-latest-release
+        uses: thebritican/fetch-latest-release@v1
         with:
-          repository: renato145/gh_actions_explore
-          excludes: prerelease, draft
-      - name: Upload binary
-        run: |
-          echo "$RELEASE_DATA"
-          echo "${{ steps.getRelease.outputs.release }}"
+          github_token: ${{ github.token }}
+
+      - name: debug
+        run: echo "${{ steps.fetch-latest-release.outputs.upload_url }}"
+
+      - name: Upload Binary Asset
+        uses: actions/upload-release-asset@v1
         env:
-          RELEASE_DATA: ${{ steps.getRelease.outputs.release }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          upload_url: ${{ steps.fetch-latest-release.outputs.upload_url }}
+          asset_path: ./news_scrapper/scrapper
+          asset_name: scrapper
+          asset_content_type: application/octet-stream
 
       # - uses: actions/upload-artifact@v2
       #   with:
