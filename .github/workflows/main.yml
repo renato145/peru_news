@@ -30,16 +30,23 @@ jobs:
           cd news_scrapper
           cargo build --release --all-features
           mv target/release/news_scrapper scrapper
-
-      - id: fetch-latest-release
-        uses: thebritican/fetch-latest-release@v2.0.0
-
+      - uses: actions/setup-python@v2
+        with: {python-version: '3.8'}
       - name: Upload Binary Asset
-        uses: actions/upload-release-asset@v1
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        with:
-          upload_url: ${{ steps.fetch-latest-release.outputs.upload_url }}
-          asset_path: ./news_scrapper/scrapper
-          asset_name: scrapper
-          asset_content_type: application/octet-stream
+          CONTEXT_GITHUB: ${{ toJson(github) }}
+        run: |
+          pip install -q git+https://github.com/fastai/ghapi.git
+          python .github/scripts/upload_asset.py
+      # - id: fetch-latest-release
+      #   uses: thebritican/fetch-latest-release@v2.0.0
+
+      # - name: Upload Binary Asset
+      #   uses: actions/upload-release-asset@v1
+      #   env:
+      #     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      #   with:
+      #     upload_url: ${{ steps.fetch-latest-release.outputs.upload_url }}
+      #     asset_path: ./news_scrapper/scrapper
+      #     asset_name: scrapper
+      #     asset_content_type: application/octet-stream
