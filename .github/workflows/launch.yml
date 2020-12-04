@@ -16,5 +16,7 @@ jobs:
           file: "scrapper"
       - name: Run scrapper
         run: |
+          ls -la
+          ./scrapper
           chmod +x scrapper
           ./scrapper
