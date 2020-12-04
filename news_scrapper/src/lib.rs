@@ -1,3 +1,8 @@
+mod headline;
+mod scrapping;
+pub use headline::*;
+pub use scrapping::*;
+
 // #[cfg(test)]
 // mod tests {
 //     #[test]
