@@ -18,5 +18,6 @@ jobs:
         run: |
           ls -la
           ./scrapper
+          chown $USER:$GROUP scrapper
           chmod +x scrapper
           ./scrapper
