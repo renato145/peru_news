@@ -32,15 +32,16 @@ jobs:
           cd news_scrapper
           cargo build --release --all-features
           mv target/release/news_scrapper ../scrapper
-      - name: Create release
-        uses: actions/create-release@v1
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - id: getRelease
+        uses: pozetroninc/github-action-get-latest-release@master
         with:
-          tag_name: v0.0.1
-          release_name: v0.0.1
-          draft: false
-          prerelease: false
+          excludes: prerelease, draft
+      - name: Upload binary
+        run: |
+          echo "$RELEASE_DATA"
+          echo "${{ steps.getRelease.outputs.release }}"
+        env:
+          RELEASE_DATA: ${{ steps.getRelease.outputs.release }}
 
       # - uses: actions/upload-artifact@v2
       #   with:
