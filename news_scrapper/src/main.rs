@@ -1,4 +1,4 @@
 
 fn main() {
-    print!("testing releases\n");
+    print!("testing releases v0.0.1\n");
 }
