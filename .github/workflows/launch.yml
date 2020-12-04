@@ -1,4 +1,4 @@
-name: Build and release
+name: Launch script
 on:
   workflow_dispatch:
   # schedule:
