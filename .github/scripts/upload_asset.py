@@ -1,9 +1,9 @@
 from fastcore.utils import *
 from ghapi import *
-import tarfile
+# import tarfile
 
 owner = 'renato145'
-repo = 'gh_actions_explore'
+repo = 'peru_news'
 bin_name = 'scrapper'
 
 api = GhApi(owner=owner, repo=repo, token=github_token())

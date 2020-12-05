@@ -1,0 +1,10 @@
+{
+  "out_path": "data",
+  "sources": [
+    {
+      "name": "el_comercio",
+      "url": "https://elcomercio.pe/ultimas-noticias/",
+      "selector": ".primary-font"
+    }
+  ]
+}

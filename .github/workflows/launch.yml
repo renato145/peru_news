@@ -8,14 +8,27 @@ jobs:
   launch:
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v2
       - name: Download last bin
         uses: dsaltares/fetch-gh-release-asset@master
         with:
-          repo: "renato145/gh_actions_explore"
+          repo: ${{ github.repository }}
           version: "latest"
           file: "scrapper"
-      - name: Run scrapper
+      - name: Run scrapper and push
         run: |
           sudo chown $USER:$GROUP scrapper
           chmod +x scrapper
-          ./scrapper
+          ./scrapper settings.json
+          git config user.name "github-actions"
+          git config user.email "github-actions@github.com"
+          git add .
+          git commit -m "update data"
+          git push
+
+          git config user.name "Automated"
+          git config user.email "actions@users.noreply.github.com"
+          git add -A
+          timestamp=$(date -u)
+          git commit -m "Latest data: ${timestamp}" || exit 0
+          git push
