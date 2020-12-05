@@ -12,13 +12,15 @@ async fn scrape_web(url: &str, selector: &str) -> Result<Vec<Headline>> {
     let document = Html::parse_document(&body);
     let selector = Selector::parse(selector).unwrap();
 
-    let data: Vec<_> = document
+    let mut data: Vec<_> = document
         .select(&selector)
         .map(Headline::from_element)
         .filter_map(|o| o)
         .map(|headline| headline.add_baseurl(url))
         .collect();
 
+    data.sort_by(|a,b| a.url.partial_cmp(&b.url).unwrap());
+    data.dedup_by(|a,b| a.url.eq_ignore_ascii_case(&b.url));
     Ok(data)
 }
 

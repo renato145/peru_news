@@ -1,5 +1,5 @@
-use serde::{Deserialize, Serialize};
 use scraper::ElementRef;
+use serde::{Deserialize, Serialize};
 
 #[derive(Debug, Serialize, Deserialize)]
 pub struct Headline {
@@ -14,12 +14,17 @@ impl Headline {
             title => title,
         }
         .to_owned();
-        Headline { title, url: url.into() }
+        Headline {
+            title,
+            url: url.into(),
+        }
     }
 
     pub fn add_baseurl(mut self, baseurl: &str) -> Headline {
         let baseurl = baseurl.trim_end_matches("/");
-        self.url = format!("{}{}", baseurl, self.url);
+        if !self.url.starts_with(baseurl) {
+            self.url = format!("{}{}", baseurl, self.url);
+        }
         self
     }
 
@@ -29,4 +34,3 @@ impl Headline {
         Some(Headline::new(&title, url))
     }
 }
-

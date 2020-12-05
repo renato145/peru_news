@@ -2,9 +2,9 @@
   "out_path": "test_data",
   "sources": [
     {
-      "name": "el_comercio",
-      "url": "https://elcomercio.pe/ultimas-noticias/",
-      "selector": ".primary-font"
+      "name": "exitosa",
+      "url": "https://exitosanoticias.pe/v1/",
+      "selector": ".btSinglePostContentInner .bt_bb_headline_content a , #bt_bb_section5fcb5a3eb36cb .bt_bb_headline_content a"
     }
   ]
 }
