@@ -29,7 +29,8 @@ jobs:
         run: |
           cd news_scrapper
           cargo build --release --all-features
-          mv target/release/news_scrapper scrapper
+          cd ..
+          mv news_scrapper/target/release/news_scrapper scrapper
           tar -czf scrapper.tar.gz scrapper
           git config user.name "github-actions"
           git config user.email "github-actions@github.com"
