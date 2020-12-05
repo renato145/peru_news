@@ -2,7 +2,7 @@ name: Launch script
 on:
   workflow_dispatch:
   # schedule:
-  #   - cron: '*/10 * * * *'
+    # - cron: '*/10 * * * *'
 
 jobs:
   launch:
@@ -25,3 +25,4 @@ jobs:
           git add .
           timestamp=$(date -u)
           git commit -m "Latest data: ${timestamp}" || exit 0
+          git push
