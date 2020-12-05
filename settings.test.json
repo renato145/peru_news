@@ -2,9 +2,54 @@
   "out_path": "test_data",
   "sources": [
     {
+      "name": "el_comercio",
+      "url": "https://elcomercio.pe/",
+      "selector": ".title-md , .text-md.text-gray-300 , .title-xs , .triplet__title-link"
+    },
+    {
+      "name": "la_republica",
+      "url": "https://larepublica.pe/",
+      "selector": ".spotlightPrincipalContentSecond a , .TendenciasListRedirect , .LastNews_Headline , .LastNewsRedirect , .cardVideosHeadlineSecundary a , .cardVideosHeadline a , .cardArticleTitle a , #bloque_spotlight_secundary_home a , .spotlightPrincipalContentFirst a:nth-child(1)"
+    },
+    {
+      "name": "correo",
+      "url": "https://diariocorreo.pe/",
+      "selector": ".text-md.text-gray-300 , .text-white.line-h-sm , .featured-story__title-link"
+    },
+    {
+      "name": "peru21",
+      "url": "https://peru21.pe/",
+      "selector": ".separator__threeline , .featured-story__title-link"
+    },
+    {
+      "name": "la_primera",
+      "url": "https://laprimera.pe/",
+      "selector": ".wpp-post-title , .td-module-title a"
+    },
+    {
+      "name": "expreso",
+      "url": "https://www.expreso.com.pe/",
+      "selector": ".columnista--user__link , .feature-story__link"
+    },
+    {
       "name": "exitosa",
       "url": "https://exitosanoticias.pe/v1/",
       "selector": ".btSinglePostContentInner .bt_bb_headline_content a , #bt_bb_section5fcb5a3eb36cb .bt_bb_headline_content a"
+    },
+    {
+      "name": "trome",
+      "url": "https://trome.pe/",
+      "selector": ".triplet__title-link , .text-white.line-h-sm , .title-xs"
+    },
+    {
+      "name": "ojo",
+      "url": "https://ojo.pe/",
+      "selector": ".line-h-sm"
+    },
+    {
+      "name": "gestion",
+      "url": "https://gestion.pe/",
+      "selector": ".separator__threeline , .font-normal , .font-bold.overflow-hidden , .title-xs , .featured-premium__title"
     }
   ]
 }

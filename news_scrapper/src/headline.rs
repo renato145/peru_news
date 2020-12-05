@@ -11,7 +11,7 @@ impl Headline {
     pub fn new(title: &str, url: &str) -> Headline {
         let title = match title {
             "" => url,
-            title => title,
+            title => title.trim(),
         }
         .to_owned();
         Headline {
