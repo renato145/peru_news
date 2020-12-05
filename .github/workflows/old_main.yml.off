@@ -30,9 +30,11 @@ jobs:
           cd news_scrapper
           cargo build --release --all-features
           mv target/release/news_scrapper scrapper
-          git config user.name "github-actions"
-          git config user.email "github-actions@github.com"
-          git add .
-          timestamp=$(date -u)
-          git commit -m "Latest bin build: ${timestamp}" || exit 0
-          git push
+      - uses: actions/setup-python@v2
+        with: {python-version: '3.8'}
+      - name: Upload Binary Asset
+        env:
+          CONTEXT_GITHUB: ${{ toJson(github) }}
+        run: |
+          pip install -q git+https://github.com/fastai/ghapi.git
+          python .github/scripts/upload_asset.py

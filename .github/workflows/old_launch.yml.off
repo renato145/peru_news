@@ -9,8 +9,16 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
+      - name: Download last bin
+        uses: dsaltares/fetch-gh-release-asset@master
+        with:
+          repo: ${{ github.repository }}
+          version: "latest"
+          file: "scrapper"
       - name: Run scrapper and push
         run: |
+          sudo chown $USER:$GROUP scrapper
+          chmod +x scrapper
           ./scrapper settings.json
           git config user.name "github-actions"
           git config user.email "github-actions@github.com"
