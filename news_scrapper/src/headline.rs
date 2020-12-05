@@ -4,32 +4,29 @@ use scraper::ElementRef;
 #[derive(Debug, Serialize, Deserialize)]
 pub struct Headline {
     pub title: String,
-    pub url: Option<String>,
+    pub url: String,
 }
 
 impl Headline {
-    pub fn new(title: &str, url: Option<&str>) -> Headline {
+    pub fn new(title: &str, url: &str) -> Headline {
         let title = match title {
-            "" => url.unwrap_or(""),
+            "" => url,
             title => title,
         }
         .to_owned();
-        let url = url.map(String::from);
-        Headline { title, url }
+        Headline { title, url: url.into() }
     }
 
     pub fn add_baseurl(mut self, baseurl: &str) -> Headline {
         let baseurl = baseurl.trim_end_matches("/");
-        self.url = self.url.map(|url| format!("{}{}", baseurl, url));
+        self.url = format!("{}{}", baseurl, self.url);
         self
     }
-}
 
-impl From<ElementRef<'_>> for Headline {
-    fn from(element: ElementRef) -> Self {
+    pub fn from_element(element: ElementRef) -> Option<Self> {
         let title = element.text().collect::<Vec<_>>().join(" ");
-        let url = element.value().attr("href");
-        Headline::new(&title, url)
+        let url = element.value().attr("href")?;
+        Some(Headline::new(&title, url))
     }
 }
 

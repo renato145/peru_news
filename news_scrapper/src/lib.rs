@@ -1,5 +1,8 @@
+mod config;
 mod headline;
 mod scrapping;
+pub mod utils;
+pub use config::*;
 pub use headline::*;
 pub use scrapping::*;
 
