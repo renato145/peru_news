@@ -4,7 +4,7 @@ use std::env;
 
 #[tokio::main]
 async fn main() -> Result<()> {
-    let config = Config::new(env::args())?;
+    let config = Config::from_args(env::args())?;
     scrape_all(config).await?;
     Ok(())
 }

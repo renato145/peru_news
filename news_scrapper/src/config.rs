@@ -16,7 +16,7 @@ pub struct Config {
 }
 
 impl Config {
-    pub fn new(mut args: std::env::Args) -> Result<Config> {
+    pub fn from_args(mut args: std::env::Args) -> Result<Config> {
         args.next();
         let filename = args.next().context("No file given")?;
         let file = File::open(filename)?;
