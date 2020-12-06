@@ -12,10 +12,9 @@ impl Headline {
         let title = match title {
             "" => url,
             title => title.trim(),
-        }
-        .to_owned();
+        };
         Headline {
-            title,
+            title: title.into(),
             url: url.into(),
         }
     }

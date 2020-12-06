@@ -16,11 +16,11 @@ async fn scrape_web(url: &str, selector: &str) -> Result<Vec<Headline>> {
         .select(&selector)
         .map(Headline::from_element)
         .filter_map(|o| o)
-        .map(|headline| headline.add_baseurl(url))
+        .map(|o| o.add_baseurl(url))
         .collect();
 
-    data.sort_by(|a,b| a.url.partial_cmp(&b.url).unwrap());
-    data.dedup_by(|a,b| a.url.eq_ignore_ascii_case(&b.url));
+    data.sort_by(|a, b| a.url.cmp(&b.url));
+    data.dedup_by(|a, b| a.url.eq_ignore_ascii_case(&b.url));
     Ok(data)
 }
 
@@ -29,10 +29,10 @@ fn save_results(data: Vec<Headline>, path: &PathBuf) -> Result<usize> {
         let file = File::open(path)?;
         let rdr = BufReader::new(file);
         let mut current_data: Vec<Headline> = serde_json::from_reader(rdr)?;
-        let urls: Vec<_> = (&current_data).into_iter().map(|o| o.url.clone()).collect();
+        let urls: Vec<_> = current_data.iter().map(|o| &o.url).collect();
         let mut new_data: Vec<_> = data
             .into_iter()
-            .filter(|o| !urls.contains(&o.url))
+            .filter(|o| !urls.contains(&&o.url))
             .collect();
         let n = new_data.len();
         current_data.append(&mut new_data);
@@ -50,7 +50,8 @@ pub async fn scrape_all(config: Config) -> Result<()> {
     let time = utils::get_peru_time().format("%Y%m%d").to_string();
     let path = Path::new(&config.out_path).join(time);
     std::fs::create_dir_all(&path).unwrap();
-    println!("Scrapping into folder: {:?}", path.display());
+    let msg = format!("Scrapping into folder {:?}:", path.display());
+    println!("{}\n{}\n", msg, "-".repeat(msg.len()));
 
     let handlers = config.sources.into_iter().map(
         |SiteConfig {
@@ -61,16 +62,20 @@ pub async fn scrape_all(config: Config) -> Result<()> {
             let filename = format!("{}.json", &name);
             let path_out = path.join(filename);
             tokio::spawn(async move {
+                let mut msg = format!("{} ({})", name, url);
                 match scrape_web(&url, &selector).await {
                     Ok(data) => {
-                        print!("{} ({}) => Found {} headlines", name, url, data.len());
+                        msg.push_str(&format!(" => Found {} headlines", data.len()));
                         match save_results(data, &path_out) {
-                            Ok(n) => println!(" ({} new ones)", n),
-                            Err(err) => println!(", error saving new records: {}", err),
+                            Ok(n) => msg.push_str(&format!(" ({} new ones)", n)),
+                            Err(err) => {
+                                msg.push_str(&format!("\nError saving new records: {}", err))
+                            }
                         }
                     }
-                    Err(err) => eprintln!("{} ({}) => Error scrapping: {}", name, url, err),
+                    Err(err) => msg.push_str(&format!("\nError scrapping: {}", err)),
                 };
+                println!("{}\n", msg);
             })
         },
     );
