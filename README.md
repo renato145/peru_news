@@ -14,6 +14,8 @@ You can setup your own headline scrapper by modifying `settings.json`
       "url": "https://some_url",
       "selector": "css selector here"
     },
+    ...
+}
 ```
 
 - `out_path`: this will be the path where the data is stored.
