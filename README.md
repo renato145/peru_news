@@ -13,8 +13,8 @@ You can setup your own headline scrapper by modifying `settings.json`
       "name": "some_name",
       "url": "https://some_url",
       "selector": "css selector here"
-    },
-    ...
+    }
+  ]
 }
 ```
 
