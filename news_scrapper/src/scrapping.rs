@@ -14,8 +14,7 @@ async fn scrape_web(url: &str, selector: &str) -> Result<Vec<Headline>> {
 
     let mut data: Vec<_> = document
         .select(&selector)
-        .map(Headline::from_element)
-        .filter_map(|o| o)
+        .filter_map(Headline::from_element)
         .map(|o| o.add_baseurl(url))
         .collect();
 
