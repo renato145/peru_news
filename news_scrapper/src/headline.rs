@@ -1,3 +1,6 @@
+use std::{fs::File, io::BufReader, path::PathBuf};
+
+use anyhow::Result;
 use scraper::ElementRef;
 use serde::{Deserialize, Serialize};
 
@@ -32,4 +35,11 @@ impl Headline {
         let url = element.value().attr("href")?;
         Some(Headline::new(&title, url))
     }
+}
+
+pub fn headlines_from_path(path: &PathBuf) -> Result<Vec<Headline>> {
+    let file = File::open(path)?;
+    let rdr = BufReader::new(file);
+    let headlines = serde_json::from_reader(rdr)?;
+    Ok(headlines)
 }
