@@ -1,4 +1,4 @@
-use anyhow::{anyhow, Result};
+use anyhow::{Result, bail};
 use std::{
     collections::HashMap,
     fs::File,
@@ -56,15 +56,17 @@ pub async fn wordcount_folder(path: &PathBuf) -> Result<usize> {
         });
 
     futures::future::join_all(handlers).await;
-    data.lock()
-        .map(|data| {
+
+    let res = match data.lock() {
+        Ok(data) => {
             let mut path = path.clone();
             path.push("summary.json");
-
-            save_results(&data, path);
-            data.len()
-        })
-        .map_err(|err| anyhow!("{}", err))
+            save_results(&data, &path)?;
+            Ok(data.len())
+        }
+        Err(err) => bail!("{}", err)
+    };
+    res
 }
 
 pub async fn wordcount_all(config: Config) -> Result<()> {
