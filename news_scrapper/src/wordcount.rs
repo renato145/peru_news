@@ -1,4 +1,4 @@
-use anyhow::{Result, bail};
+use anyhow::{bail, Result};
 use std::{
     collections::HashMap,
     fs::File,
@@ -27,10 +27,11 @@ type WordCountCollection = HashMap<String, WordCount>;
 fn save_results(data: &WordCountCollection, path: &PathBuf) -> Result<()> {
     let file = File::create(path)?;
     serde_json::to_writer_pretty(file, data)?;
+    println!("should save to {:?}", path);
     Ok(())
 }
 
-pub async fn wordcount_folder(path: &PathBuf) -> Result<usize> {
+pub async fn wordcount_folder(path: &PathBuf, save_path: &PathBuf) -> Result<usize> {
     let data: Arc<Mutex<WordCountCollection>> = Arc::new(Mutex::new(HashMap::new()));
 
     let handlers = path
@@ -59,33 +60,41 @@ pub async fn wordcount_folder(path: &PathBuf) -> Result<usize> {
 
     let res = match data.lock() {
         Ok(data) => {
-            let mut path = path.clone();
-            path.push("summary.json");
-            save_results(&data, &path)?;
+            save_results(&data, &save_path)?;
             Ok(data.len())
         }
-        Err(err) => bail!("{}", err)
+        Err(err) => bail!("{}", err),
     };
     res
 }
 
 pub async fn wordcount_all(config: Config) -> Result<()> {
     let out_path = Path::new(&config.out_path);
+    let mut summary_path = out_path.to_path_buf();
+    summary_path.push("summary");
+    std::fs::create_dir_all(&summary_path).unwrap();
     let msg = format!("Word counting from folder {:?}:", out_path.display());
     println!("{}\n{}", msg, "-".repeat(msg.len()));
 
     let handlers = out_path
         .read_dir()?
         .filter_map(Result::ok)
-        .map(|o| o.path())
-        .filter(|o| o.is_dir())
-        .map(|day_path| {
-            tokio::spawn(async move {
-                match wordcount_folder(&day_path).await {
-                    Ok(n) => println!("{:?} done ({} files)", day_path.display(), n),
-                    Err(err) => println!("Error retrieving {:?}: {}", day_path.display(), err),
-                };
-            })
+        .map(|o| (o.path(), o.file_name()))
+        .filter(|(path, name)| path.is_dir() && name != "summary" && name != "")
+        .filter_map(|(day_path, day_name)| {
+            let mut save_path = summary_path.clone();
+            save_path.push(day_name);
+            save_path.set_extension("json");
+            if save_path.exists() {
+                None
+            } else {
+                Some(tokio::spawn(async move {
+                    match wordcount_folder(&day_path, &save_path).await {
+                        Ok(n) => println!("{:?} done ({} files)", day_path.display(), n),
+                        Err(err) => println!("Error retrieving {:?}: {}", day_path.display(), err),
+                    };
+                }))
+            }
         });
 
     futures::future::join_all(handlers).await;
