@@ -1,9 +1,8 @@
-use super::{utils, Config, Headline, SiteConfig};
+use crate::{headlines_from_path, utils, Config, Headline, SiteConfig};
 use anyhow::Result;
 use scraper::{Html, Selector};
 use std::{
     fs::File,
-    io::BufReader,
     path::{Path, PathBuf},
 };
 
@@ -25,9 +24,7 @@ async fn scrape_web(url: &str, selector: &str) -> Result<Vec<Headline>> {
 
 fn save_results(data: Vec<Headline>, path: &PathBuf) -> Result<usize> {
     let (n, data) = if path.exists() {
-        let file = File::open(path)?;
-        let rdr = BufReader::new(file);
-        let mut current_data: Vec<Headline> = serde_json::from_reader(rdr)?;
+        let mut current_data = headlines_from_path(path)?;
         let urls: Vec<_> = current_data.iter().map(|o| &o.url).collect();
         let mut new_data: Vec<_> = data
             .into_iter()
@@ -50,7 +47,7 @@ pub async fn scrape_all(config: Config) -> Result<()> {
     let path = Path::new(&config.out_path).join(time);
     std::fs::create_dir_all(&path).unwrap();
     let msg = format!("Scrapping into folder {:?}:", path.display());
-    println!("{}\n{}\n", msg, "-".repeat(msg.len()));
+    println!("{}\n{}", msg, "-".repeat(msg.len()));
 
     let handlers = config.sources.into_iter().map(
         |SiteConfig {
