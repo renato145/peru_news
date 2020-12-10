@@ -24,4 +24,5 @@ You can setup your own headline scrapper by modifying `settings.json`
 
 The scrapper is very simple, for each element the selector obtains, it will try to get the `href` and `text` values to store it in a json file.
 
-The output data will have the format: `{out_path}/YYYYMMDD/{source.name}`.
+The output data will have the format: `{out_path}/YYYYMMDD/{source.name}`.json
+
