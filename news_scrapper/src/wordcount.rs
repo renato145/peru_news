@@ -1,4 +1,6 @@
 use anyhow::{bail, Result};
+use lazy_static::lazy_static;
+use regex::Regex;
 use std::{
     collections::HashMap,
     fs::File,
@@ -8,13 +10,28 @@ use std::{
 
 use crate::{headlines_from_path, Config};
 
+lazy_static! {
+    static ref RE: Regex = Regex::new(r"(?:[[:alnum:]ÁÉÍÓÚÑáéíóúñ]{3,})").unwrap();
+    static ref STOP_WORDS: Vec<String> = String::from_utf8_lossy(include_bytes!("spanish"))
+        .split("\n")
+        .map(|o| o.into())
+        .collect();
+}
+
+fn process_text(text: &String) -> Vec<String> {
+    RE.find_iter(text)
+        .map(|o| o.as_str().to_string())
+        .filter(|o| !STOP_WORDS.contains(o))
+        .collect()
+}
+
 type WordCount = HashMap<String, usize>;
 
 pub fn wordcount(path: &PathBuf) -> Result<WordCount> {
     let data = headlines_from_path(path)?;
     let mut words = HashMap::new();
     for headline in data {
-        for word in headline.title.split(' ') {
+        for word in process_text(&headline.title) {
             let n = words.entry(word.into()).or_insert(0 as usize);
             *n += 1;
         }
@@ -84,23 +101,21 @@ pub async fn wordcount_all(config: Config) -> Result<()> {
 
     handlers.sort_by(|a, b| b.1.as_os_str().cmp(&a.1.as_os_str()));
 
-    let handlers = handlers
-        .drain(1..)
-        .filter_map(|(day_path, day_name)| {
-            let mut save_path = summary_path.clone();
-            save_path.push(day_name);
-            save_path.set_extension("json");
-            if save_path.exists() {
-                None
-            } else {
-                Some(tokio::spawn(async move {
-                    match wordcount_folder(&day_path, &save_path).await {
-                        Ok(n) => println!("{:?} done ({} files)", day_path.display(), n),
-                        Err(err) => println!("Error retrieving {:?}: {}", day_path.display(), err),
-                    };
-                }))
-            }
-        });
+    let handlers = handlers.drain(1..).filter_map(|(day_path, day_name)| {
+        let mut save_path = summary_path.clone();
+        save_path.push(day_name);
+        save_path.set_extension("json");
+        if save_path.exists() {
+            None
+        } else {
+            Some(tokio::spawn(async move {
+                match wordcount_folder(&day_path, &save_path).await {
+                    Ok(n) => println!("{:?} done ({} files)", day_path.display(), n),
+                    Err(err) => println!("Error retrieving {:?}: {}", day_path.display(), err),
+                };
+            }))
+        }
+    });
 
     futures::future::join_all(handlers).await;
     println!("Done! :)");
