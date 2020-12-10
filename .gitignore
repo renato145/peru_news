@@ -10,4 +10,5 @@ Cargo.lock
 **/*.rs.bk
 .vscode/
 scrapper
+wordcount
 test_data/
