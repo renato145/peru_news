@@ -76,11 +76,18 @@ pub async fn wordcount_all(config: Config) -> Result<()> {
     let msg = format!("Word counting from folder {:?}:", out_path.display());
     println!("{}\n{}", msg, "-".repeat(msg.len()));
 
-    let handlers = out_path
+    let mut handlers: Vec<_> = out_path
         .read_dir()?
         .filter_map(Result::ok)
         .map(|o| (o.path(), o.file_name()))
         .filter(|(path, name)| path.is_dir() && name != "summary" && name != "")
+        .collect();
+
+    handlers.sort_by(|a, b| b.1.as_os_str().cmp(&a.1.as_os_str()));
+
+    let handlers = handlers
+        .into_iter()
+        .skip(1)
         .filter_map(|(day_path, day_name)| {
             let mut save_path = summary_path.clone();
             save_path.push(day_name);
