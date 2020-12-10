@@ -27,7 +27,6 @@ type WordCountCollection = HashMap<String, WordCount>;
 fn save_results(data: &WordCountCollection, path: &PathBuf) -> Result<()> {
     let file = File::create(path)?;
     serde_json::to_writer_pretty(file, data)?;
-    println!("should save to {:?}", path);
     Ok(())
 }
 
@@ -86,8 +85,7 @@ pub async fn wordcount_all(config: Config) -> Result<()> {
     handlers.sort_by(|a, b| b.1.as_os_str().cmp(&a.1.as_os_str()));
 
     let handlers = handlers
-        .into_iter()
-        .skip(1)
+        .drain(1..)
         .filter_map(|(day_path, day_name)| {
             let mut save_path = summary_path.clone();
             save_path.push(day_name);
