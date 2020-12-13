@@ -37,8 +37,6 @@ export const Visualization: React.FC<Props> = ({ topk }) => {
     ]);
   }, [cache, data, topk]);
 
-  console.log(queryData);
-
   return (
     <div className="mt-2">
       {queryData.length === 0 ? (
