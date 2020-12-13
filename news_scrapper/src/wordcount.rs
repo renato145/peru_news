@@ -11,7 +11,7 @@ use std::{
 use crate::{headlines_from_path, Config};
 
 lazy_static! {
-    static ref RE: Regex = Regex::new(r"(?:[[:alnum:]ÁÉÍÓÚÑáéíóúñ]{3,})").unwrap();
+    static ref RE: Regex = Regex::new(r"(?:[[:alpha:]ÁÉÍÓÚÑáéíóúñ]{3,})").unwrap();
     static ref STOP_WORDS: Vec<String> = String::from_utf8_lossy(include_bytes!("spanish"))
         .split("\n")
         .map(|o| o.into())
@@ -21,7 +21,7 @@ lazy_static! {
 fn process_text(text: &String) -> Vec<String> {
     RE.find_iter(text)
         .map(|o| o.as_str().to_string())
-        .filter(|o| !STOP_WORDS.contains(o))
+        .filter(|o| !STOP_WORDS.contains(&o.to_lowercase()))
         .collect()
 }
 
