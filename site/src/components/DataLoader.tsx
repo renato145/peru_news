@@ -1,24 +1,21 @@
 import React from "react";
 import { getFormattedDate } from "../utils";
 import { DayLoader } from "./DayLoader";
-import { Visualization } from "./Visualization";
 
 interface Props {
-  size: number;
+  n: number;
+  loadN: number;
 }
 
-export const DataLoader: React.FC<Props> = ({ size }) => {
-  const dates = Array(size)
+export const DataLoader: React.FC<Props> = ({ n, loadN }) => {
+  const dates = Array(n)
     .fill(0)
     .map((_, i) => getFormattedDate(-i));
 
   return (
-    <div className="flex space-x-2">
+    <div className="-mt-2 -ml-2 flex flex-wrap">
       {dates.map((d, i) => (
-        <div key={i}>
-          <DayLoader date={d} />
-          <Visualization date={d} />
-        </div>
+        <DayLoader key={i} className="mt-2 ml-2" date={d} load={i < loadN} />
       ))}
     </div>
   );

@@ -7,16 +7,13 @@ const DATA_URL =
 type FetchData = { [key: string]: { [word: string]: number } };
 
 const formatData: (data: FetchData) => SummaryData = (data) =>
-  Object.entries(data).map(([key, wc]) => [
-    key,
-    Object.entries(wc).sort((a, b) => b[1] - a[1]),
-  ]);
+  Object.entries(data).map(([key, wc]) => [key, Object.entries(wc)]);
 
 type Props = (_key: string, props: { date: string }) => Promise<SummaryData>;
 
 export const useFetchData: Props = async (_key, { date }) => {
   console.log(`fetching summary data ${_key} ${date}`);
-  await new Promise((r) => setTimeout(r, 1000));
+  await new Promise((r) => setTimeout(r, 2000));
   const url = `${DATA_URL}${date}.json`;
   const { data, status } = await axios.get<FetchData>(url);
   if (status !== 200) throw new Error(`status: ${status}`);
