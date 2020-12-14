@@ -5,21 +5,28 @@ interface Props {
   data: [string, number][];
 }
 
-const selector = ({ selectedWord, setSelectedWord }: StoreProps) => ({
+const selector = ({ selectedWord, setSelectedWord, addFilter }: StoreProps) => ({
   selectedWord,
   setSelectedWord,
+  addFilter,
 });
 
 export const WordCount: React.FC<Props> = ({ data }) => {
-  const { selectedWord, setSelectedWord } = useStore(selector);
+  const { selectedWord, setSelectedWord, addFilter } = useStore(selector);
   const width = useMemo(
     () => data.map(([_, count]) => count).reduce((a, b) => Math.max(a, b)),
     [data]
   );
 
-  const handleClick = (word: string) => {
+  const handleSelect = (word: string) => {
     if (selectedWord !== word) setSelectedWord(word);
     else setSelectedWord("");
+  };
+
+  const handleRemove = (ev: React.MouseEvent<HTMLParagraphElement, MouseEvent>, word: string) => {
+    ev.stopPropagation();
+    if (selectedWord === word) setSelectedWord("");
+    addFilter(word);
   };
 
   return (
@@ -27,18 +34,26 @@ export const WordCount: React.FC<Props> = ({ data }) => {
       {data.map(([word, count], i) => (
         <div
           key={i}
-          className="relative flex items-center h-8"
-          onClick={() => handleClick(word)}
+          className="group relative flex items-center h-8"
+          onClick={() => handleSelect(word)}
         >
-          <p
-            className={`absolute pl-2  cursor-pointer ${
-              selectedWord === word ? "font-semibold" : ""
-            }`}
-          >
-            {word} ({count})
-          </p>
+          <div className="absolute flex w-full justify-between pl-2">
+            <p
+              className={`pointer-events-none ${
+                selectedWord === word ? "font-semibold" : ""
+              }`}
+            >
+              {word} ({count})
+            </p>
+            <p
+              className="mr-2 font-bold text-xs cursor-pointer text-gray-400 hover:text-gray-900"
+              onClick={(e) => handleRemove(e,word)}
+            >
+              X
+            </p>
+          </div>
           <div
-            className={`h-full transition-all duration-300 cursor-pointer ${
+            className={`h-full transition-all duration-300 cursor-pointer group-hover:bg-blue-300 ${
               selectedWord === word ? "bg-blue-400" : "bg-blue-200"
             }`}
             style={{ width: `${(100 * count) / width}%` }}
