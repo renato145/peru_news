@@ -1,32 +1,27 @@
 import { parse, format } from "date-fns";
 import React, { useCallback, useEffect } from "react";
-import { useQuery } from "react-query";
 import { useFetchData } from "../hooks/useFetchData";
 import { StoreProps, useStore } from "../store";
-import { SummaryData } from "../types";
-import { defaultQueryConfig } from "../utils";
 
 interface Props {
   date: string;
+  url: string;
   load: boolean;
   className?: string;
 }
 
-const selector = (date: string) => (state: StoreProps) => ({
-  addDate: () => state.add(date),
-  removeDate: () => state.remove(date),
-  isActive: state.isActive(date),
+const selector = (url: string) => (state: StoreProps) => ({
+  addDate: () => state.add(url),
+  removeDate: () => state.remove(url),
+  isActive: state.isActive(url),
 });
 
-const formatDate = (date: string) => format(parse(date, "yyyyMMdd", new Date()), "dd/MM/Y");
+const formatDate = (date: string) =>
+  format(parse(date, "yyyyMMdd", new Date()), "dd/MM/Y");
 
-export const DayLoader: React.FC<Props> = ({ date, load, className = "" }) => {
-  const { isError, isLoading, isSuccess, refetch } = useQuery<SummaryData>(
-    ["data", { date }],
-    useFetchData,
-    defaultQueryConfig
-  );
-  const { addDate, removeDate, isActive } = useStore(selector(date));
+export const DayLoader: React.FC<Props> = ({ date, url, load, className = "" }) => {
+  const { isError, isLoading, isSuccess, refetch } = useFetchData(url);
+  const { addDate, removeDate, isActive } = useStore(selector(url));
 
   const toogle = useCallback(() => {
     if (isActive || isError) removeDate();

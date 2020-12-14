@@ -31,14 +31,14 @@ export const WordCount: React.FC<Props> = ({ data }) => {
           onClick={() => handleClick(word)}
         >
           <p
-            className={`absolute pl-2 pointer-events-none ${
+            className={`absolute pl-2  cursor-pointer ${
               selectedWord === word ? "font-semibold" : ""
             }`}
           >
             {word} ({count})
           </p>
           <div
-            className={`h-full transition-all duration-300 ${
+            className={`h-full transition-all duration-300 cursor-pointer ${
               selectedWord === word ? "bg-blue-400" : "bg-blue-200"
             }`}
             style={{ width: `${(100 * count) / width}%` }}

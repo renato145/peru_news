@@ -3,34 +3,34 @@ import create from "zustand";
 export type StoreProps = {
   data: string[];
   selectedWord: string;
-  add: (date: string) => void;
-  remove: (date: string) => void;
-  isActive: (date: string) => boolean;
+  add: (url: string) => void;
+  remove: (url: string) => void;
+  isActive: (url: string) => boolean;
   setSelectedWord: (word: string) => void;
 };
 
 export const useStore = create<StoreProps>((set, get) => ({
   data: [],
   selectedWord: "",
-  add: (date) =>
+  add: (url) =>
     set((state) => {
-      if (state.data.indexOf(date) > -1) {
+      if (state.data.indexOf(url) > -1) {
         return {};
       } else {
-        const data = state.data.concat(date);
+        const data = state.data.concat(url);
         return { data };
       }
     }),
-  remove: (date) =>
+  remove: (url) =>
     set((state) => {
-      const idx = state.data.indexOf(date);
+      const idx = state.data.indexOf(url);
       if (idx > -1) {
-        const data = state.data.filter((o) => o !== date);
+        const data = state.data.filter((o) => o !== url);
         return { data };
       } else {
         return {};
       }
     }),
-  isActive: (date) => get().data.indexOf(date) > -1,
+  isActive: (url) => get().data.indexOf(url) > -1,
   setSelectedWord: (word) => set({ selectedWord: word }),
 }));
