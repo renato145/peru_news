@@ -4,7 +4,16 @@ import { ReactQueryDevtools } from "react-query/devtools";
 import { DataLoader } from "./components/DataLoader";
 import { Visualization } from "./components/Visualization";
 
-const queryClient =  new QueryClient({defaultOptions: {queries: {}}});
+const queryClient = new QueryClient({
+  defaultOptions: {
+    queries: {
+      refetchOnMount: false,
+      refetchOnReconnect: false,
+      refetchOnWindowFocus: false,
+      cacheTime: 60000 * 60, //1h
+    },
+  },
+});
 
 export const App: React.FC = () => {
   return (

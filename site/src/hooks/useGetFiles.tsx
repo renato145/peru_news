@@ -1,6 +1,5 @@
 import axios from "axios";
 import { useQuery } from "react-query";
-import { defaultQueryConfig } from "../utils";
 
 const URL =
   "https://api.github.com/repos/renato145/peru_news/contents/data/summary?ref=main";
@@ -21,8 +20,4 @@ const fetchData: Props = async () => {
 };
 
 export const useGetFiles = () =>
-  useQuery<FetchData>("files", () => fetchData(), {
-    ...defaultQueryConfig,
-    enabled: true,
-    retry: true,
-  });
+  useQuery<FetchData>("files", () => fetchData());

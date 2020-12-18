@@ -1,6 +1,5 @@
 import axios from "axios";
 import { useQuery } from "react-query";
-import { defaultQueryConfig } from "../utils";
 
 const URL =
   "https://raw.githubusercontent.com/renato145/peru_news/main/settings.json";
@@ -19,8 +18,4 @@ const fetchData: Props = async () => {
 };
 
 export const useName2Url = () =>
-  useQuery<Name2Url>("name2url", () => fetchData(), {
-    ...defaultQueryConfig,
-    enabled: true,
-    retry: true,
-  });
+  useQuery<Name2Url>("name2url", () => fetchData());

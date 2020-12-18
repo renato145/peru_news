@@ -1,7 +1,6 @@
 import axios from "axios";
 import { useQuery } from "react-query";
 import { FetchData } from "../store";
-import { defaultQueryConfig } from "../utils";
 
 type Props = (url: string) => Promise<FetchData>;
 
@@ -14,8 +13,7 @@ const fetchData: Props = async (url) => {
 };
 
 export const useFetchData = (url: string) =>
-  useQuery<FetchData>(
-    ["data", { url }],
-    () => fetchData(url),
-    defaultQueryConfig
-  );
+  useQuery<FetchData>(["data", { url }], () => fetchData(url), {
+    enabled: false,
+    retry: false,
+  });
