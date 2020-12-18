@@ -1,18 +1,20 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useMemo } from "react";
 import { useName2Url } from "../hooks/useName2Url";
 import { StoreProps, useStore } from "../store";
 import { Filter } from "./Filter";
 import { Newspaper } from "./Newspaper";
 import { Spinner } from "./Spinner";
+import { scaleTime, extent } from "d3";
+import { formatDate } from "../utils";
 
 const selector = ({
   activeData,
-  activeUrls,
+  activeDates,
   setTopK,
   filters,
 }: StoreProps) => ({
   activeData,
-  activeUrls,
+  activeDates,
   setTopK,
   filters,
 });
@@ -21,8 +23,13 @@ interface Props {
 }
 
 export const Visualization: React.FC<Props> = ({ topk }) => {
-  const { activeData, activeUrls, setTopK, filters } = useStore(selector);
+  const { activeData, activeDates, setTopK, filters } = useStore(selector);
   const { data: name2url } = useName2Url();
+  const xScale = useMemo(() => { 
+    const dates = extent(activeDates.map(formatDate));
+    if (!dates[0]) return null;
+    return scaleTime<number>().domain(dates);
+   }, [activeDates]);
 
   useEffect(() => {
     setTopK(topk);
@@ -36,7 +43,7 @@ export const Visualization: React.FC<Props> = ({ topk }) => {
         </div>
       ) : (
         <>
-          <p className="font-semibold">Loaded data: {activeUrls.length}</p>
+          <p className="font-semibold">Loaded data: {activeDates.length}</p>
           <div className="flex flex-wrap -ml-1">
             {filters.map((word, i) => (
               <Filter key={i} className="ml-1 mt-0.5" word={word} />
@@ -52,6 +59,7 @@ export const Visualization: React.FC<Props> = ({ topk }) => {
                   name2url={name2url}
                   name={name}
                   wc={wc}
+                  xScale={xScale}
                 />
               ))}
           </div>

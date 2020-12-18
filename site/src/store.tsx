@@ -2,19 +2,20 @@ import create from "zustand";
 
 type WC = { [word: string]: number };
 export type FetchData = { [newsName: string]: WC };
-export type Data = { [url: string]: FetchData };
-export type SummaryData = [string, [string, number][]][];
+export type Data = { [date: string]: FetchData };
+export type SummaryData = [name: string, wc: [word: string, count: number][]][];
+export type WordData = [date: string, count: number][];
 
 const formatData = (
   data: Data,
-  activeUrls: string[],
+  activeDates: string[],
   topk: number,
   filters: string[]
 ): SummaryData => {
   const res = new Map<string, Map<string, number>>();
 
-  activeUrls.forEach((url) => {
-    const dayData = data[url];
+  activeDates.forEach((date) => {
+    const dayData = data[date];
     if (dayData !== undefined) {
       Object.entries(dayData).forEach(([name, wc]) => {
         const nameData = res.get(name) ?? new Map<string, number>();
@@ -38,75 +39,88 @@ const formatData = (
 export type StoreProps = {
   data: Data;
   topk: number;
-  activeUrls: string[];
+  activeDates: string[];
   activeData: SummaryData;
   selectedWord: string;
   filters: string[];
+  wordData: Map<string, WordData> | null;
   add: (data: Data) => void;
-  addActiveUrl: (url: string) => void;
-  rmActiveUrl: (url: string) => void;
-  isActive: (url: string) => boolean;
+  addActiveDate: (date: string) => void;
+  rmActiveDate: (date: string) => void;
+  isActiveDate: (date: string) => boolean;
   setSelectedWord: (word: string) => void;
   setTopK: (topk: number) => void;
   addFilter: (word: string) => void;
   rmFilter: (word: string) => void;
+  getTimelineData: (name: string) => WordData | undefined;
 };
 
 export const useStore = create<StoreProps>((set, get) => ({
   data: {},
   topk: 0,
-  activeUrls: [],
+  activeDates: [],
   activeData: [],
   selectedWord: "",
-  filters: localStorage.getItem('filters')?.split(',') ?? [],
+  filters: localStorage.getItem("filters")?.split(",") ?? [],
+  wordData: null,
   add: (wc) => {
     set(({ data }) => ({ data: Object.assign(data, wc) }));
   },
-  addActiveUrl: (url) => {
-    set(({ data, activeUrls, topk, filters }) => {
-      if (activeUrls.indexOf(url) > -1) return {};
+  addActiveDate: (date) => {
+    set(({ data, activeDates, topk, filters }) => {
+      if (activeDates.indexOf(date) > -1) return {};
       else {
-        const _activeUrls = activeUrls.concat(url);
-        if (topk === 0) return { activeUrls: _activeUrls };
+        const _activeUrls = activeDates.concat(date);
+        if (topk === 0) return { activeDates: _activeUrls };
         const _activeData = formatData(data, _activeUrls, topk, filters);
-        return { activeUrls: _activeUrls, activeData: _activeData };
+        return { activeDates: _activeUrls, activeData: _activeData };
       }
     });
   },
-  rmActiveUrl: (url) => {
-    set(({ data, activeUrls, topk, filters }) => {
-      if (activeUrls.indexOf(url) > -1) {
-        const _activeUrls = activeUrls.filter((o) => o !== url);
-        if (topk === 0) return { activeUrls: _activeUrls };
+  rmActiveDate: (date) => {
+    set(({ data, activeDates, topk, filters }) => {
+      if (activeDates.indexOf(date) > -1) {
+        const _activeUrls = activeDates.filter((o) => o !== date);
+        if (topk === 0) return { activeDates: _activeUrls };
         const _activeData = formatData(data, _activeUrls, topk, filters);
-        return { activeUrls: _activeUrls, activeData: _activeData };
+        return { activeDates: _activeUrls, activeData: _activeData };
       } else return {};
     });
   },
-  isActive: (url) => get().activeUrls.indexOf(url) > -1,
-  setSelectedWord: (word) => set({ selectedWord: word }),
+  isActiveDate: (date) => get().activeDates.indexOf(date) > -1,
+  setSelectedWord: (word) => {
+    const wordData = new Map<string, WordData>();
+    Object.entries(get().data).forEach(([date, data]) => {
+      Object.entries(data).forEach(([name, wc]) => {
+        if (!wordData.has(name)) wordData.set(name, []);
+        wordData.get(name)?.push([date, wc[word]]);
+      });
+    });
+    set({ selectedWord: word, wordData });
+  },
   setTopK: (topk) => {
     set(() => ({ topk }));
   },
   addFilter: (word) => {
-    set(({ data, activeUrls, topk, filters }) => {
+    set(({ data, activeDates, topk, filters }) => {
       if (filters.indexOf(word) > -1) return {};
       else {
         const _filters = filters.concat(word);
-        localStorage.setItem('filters', _filters.join());
-        const _activeData = formatData(data, activeUrls, topk, _filters);
+        localStorage.setItem("filters", _filters.join());
+        const _activeData = formatData(data, activeDates, topk, _filters);
         return { activeData: _activeData, filters: _filters };
       }
     });
   },
   rmFilter: (word) => {
-    set(( {data, activeUrls, topk, filters} ) => {
+    set(({ data, activeDates, topk, filters }) => {
       if (filters.indexOf(word) > -1) {
         const _filters = filters.filter((o) => o !== word);
-        localStorage.setItem('filters', _filters.join());
-        const _activeData = formatData(data, activeUrls, topk, _filters);
+        localStorage.setItem("filters", _filters.join());
+        const _activeData = formatData(data, activeDates, topk, _filters);
         return { activeData: _activeData, filters: _filters };
-      }else return {};
+      } else return {};
     });
   },
+  getTimelineData: (name) => get().wordData?.get(name),
 }));

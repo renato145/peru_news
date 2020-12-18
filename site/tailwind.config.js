@@ -7,7 +7,7 @@ module.exports = {
     extend: {
       colors: {
         lime: colors.lime,
-        green: colors.green
+        green: colors.green,
       },
     },
   },
@@ -15,4 +15,4 @@ module.exports = {
     extend: {},
   },
   plugins: [],
-}
+};

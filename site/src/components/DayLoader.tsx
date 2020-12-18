@@ -10,11 +10,11 @@ interface Props {
   className?: string;
 }
 
-const selector = (url: string) => (state: StoreProps) => ({
+const selector = (date: string) => (state: StoreProps) => ({
   add: state.add,
-  addUrl: () => state.addActiveUrl(url),
-  removeDate: () => state.rmActiveUrl(url),
-  isActive: state.isActive(url),
+  addDate: () => state.addActiveDate(date),
+  removeDate: () => state.rmActiveDate(date),
+  isActive: state.isActiveDate(date),
 });
 
 const formatDate = (date: string) =>
@@ -27,12 +27,12 @@ export const DayLoader: React.FC<Props> = ({
   className = "",
 }) => {
   const { isError, isLoading, isSuccess, refetch } = useFetchData(url);
-  const { add, addUrl, removeDate, isActive } = useStore(selector(url));
+  const { add, addDate, removeDate, isActive } = useStore(selector(date));
 
   const toogle = useCallback(() => {
     if (isActive || isError) removeDate();
-    else if (isSuccess) addUrl();
-  }, [isActive, isError, removeDate, isSuccess, addUrl]);
+    else if (isSuccess) addDate();
+  }, [isActive, isError, removeDate, isSuccess, addDate]);
 
   const toogleView = useCallback(() => {
     if (isSuccess) toogle();
@@ -40,11 +40,11 @@ export const DayLoader: React.FC<Props> = ({
     else
       refetch().then(({ data }) => {
         if (data) {
-          add({ [url]: data });
-          addUrl();
+          add({ [date]: data });
+          addDate();
         }
       });
-  }, [add, addUrl, isLoading, isSuccess, refetch, toogle, url]);
+  }, [add, addDate, isLoading, isSuccess, refetch, toogle, date]);
 
   useEffect(() => {
     if (load) toogleView();

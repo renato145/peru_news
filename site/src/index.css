@@ -10,3 +10,17 @@
     @apply underline;
   }
 }
+
+@layer utilities {
+  @variants hover {
+    .scatter-sm {
+      r: 1
+    }
+    .scatter {
+      r: 3
+    }
+    .scatter-lg {
+      r: 5
+    }
+  }
+}

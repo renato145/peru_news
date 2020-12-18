@@ -13,3 +13,4 @@ scrapper
 wordcount
 test_data/
 site/.eslintcache
+site/tailwind.config.full.js
