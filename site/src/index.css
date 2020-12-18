@@ -6,4 +6,7 @@
   body {
     @apply antialiased text-gray-900;
   }
+  a {
+    @apply underline;
+  }
 }
