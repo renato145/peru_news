@@ -37,8 +37,8 @@ export const DayLoader: React.FC<Props> = ({
   const toogleView = useCallback(() => {
     if (isSuccess) toogle();
     else if (isLoading) return;
-    else 
-      refetch().then((data) => {
+    else
+      refetch().then(({ data }) => {
         if (data) {
           add({ [url]: data });
           addUrl();

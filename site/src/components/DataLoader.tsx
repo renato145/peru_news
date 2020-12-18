@@ -1,5 +1,4 @@
 import React from "react";
-import { QueryStatus } from "react-query";
 import { useGetFiles } from "../hooks/useGetFiles";
 import { DayLoader } from "./DayLoader";
 import { Spinner } from "./Spinner";
@@ -14,11 +13,11 @@ export const DataLoader: React.FC<Props> = ({ n, loadN }) => {
 
   return (
     <div className="-mt-2 -ml-2 flex flex-wrap">
-      {status === QueryStatus.Error ? (
+      {status === "error" ? (
         <p>
           Couldn't load files: <span>{String(error)}</span>
         </p>
-      ) : status === QueryStatus.Success && data ? (
+      ) : status === "success" && data ? (
         data.slice(0, n).map(({download_url, name}, i) => (
           <DayLoader key={i} className="mt-2 ml-2" date={name} url={download_url} load={i < loadN} />
         ))

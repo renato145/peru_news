@@ -7,19 +7,19 @@ const URL =
 
 type FetchData = { sources: { name: string; url: string }[] };
 type Name2Url = Map<string, string>;
-type Props = (_key: string) => Promise<Name2Url>;
+type Props = () => Promise<Name2Url>;
 
-const fetchData: Props = async (_key) => {
+const fetchData: Props = async () => {
   // await new Promise((r) => setTimeout(r, 2000));
   const { data, status } = await axios.get<FetchData>(URL, {});
   if (status !== 200) throw new Error(`status: ${status}`);
   const res: Name2Url = new Map();
-  data.sources.forEach(({name, url}) => res.set(name, url));
+  data.sources.forEach(({ name, url }) => res.set(name, url));
   return res;
 };
 
 export const useName2Url = () =>
-  useQuery<Name2Url>("name2url", fetchData, {
+  useQuery<Name2Url>("name2url", () => fetchData(), {
     ...defaultQueryConfig,
     enabled: true,
     retry: true,
