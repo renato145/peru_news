@@ -5,7 +5,7 @@ const URL =
   "https://raw.githubusercontent.com/renato145/peru_news/main/settings.json";
 
 type FetchData = { sources: { name: string; url: string }[] };
-type Name2Url = Map<string, string>;
+export type Name2Url = Map<string, string>;
 type Props = () => Promise<Name2Url>;
 
 const fetchData: Props = async () => {
