@@ -1,7 +1,8 @@
-import { parse, format } from "date-fns";
+import { format } from "date-fns";
 import React, { useCallback, useEffect } from "react";
 import { useFetchData } from "../hooks/useFetchData";
 import { StoreProps, useStore } from "../store";
+import { formatDateStr } from "../utils";
 
 interface Props {
   date: string;
@@ -17,8 +18,7 @@ const selector = (date: string) => (state: StoreProps) => ({
   isActive: state.isActiveDate(date),
 });
 
-const formatDate = (date: string) =>
-  format(parse(date, "yyyyMMdd", new Date()), "dd/MM/Y");
+const formatDate = (date: string) => format(formatDateStr(date), "dd/MM/Y");
 
 export const DayLoader: React.FC<Props> = ({
   date,

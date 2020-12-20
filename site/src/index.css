@@ -14,13 +14,13 @@
 @layer utilities {
   @variants hover {
     .scatter-sm {
-      r: 1
+      r: 2
     }
     .scatter {
-      r: 3
+      r: 4
     }
     .scatter-lg {
-      r: 5
+      r: 6
     }
   }
 }

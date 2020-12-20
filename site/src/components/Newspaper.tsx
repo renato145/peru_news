@@ -25,7 +25,6 @@ export const Newspaper: React.FC<Props> = ({
   ...props
 }) => {
   const { selectedWord: word, getTimelineData } = useStore(selector);
-  // const { data } = useMemo(() => ({ data: getTimelineData(name) }), [
   // eslint-disable-next-line react-hooks/exhaustive-deps
   const data = useMemo(() => getTimelineData(name), [
     getTimelineData,

@@ -5,7 +5,7 @@ import { Filter } from "./Filter";
 import { Newspaper } from "./Newspaper";
 import { Spinner } from "./Spinner";
 import { scaleTime, extent } from "d3";
-import { formatDate } from "../utils";
+import { formatDateStr } from "../utils";
 
 const selector = ({
   activeData,
@@ -26,7 +26,7 @@ export const Visualization: React.FC<Props> = ({ topk }) => {
   const { activeData, activeDates, setTopK, filters } = useStore(selector);
   const { data: name2url } = useName2Url();
   const xScale = useMemo(() => { 
-    const dates = extent(activeDates.map(formatDate));
+    const dates = extent(activeDates.map(formatDateStr));
     if (!dates[0]) return null;
     return scaleTime<number>().domain(dates);
    }, [activeDates]);

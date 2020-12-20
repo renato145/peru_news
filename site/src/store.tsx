@@ -90,12 +90,14 @@ export const useStore = create<StoreProps>((set, get) => ({
   isActiveDate: (date) => get().activeDates.indexOf(date) > -1,
   setSelectedWord: (word) => {
     const wordData = new Map<string, WordData>();
-    Object.entries(get().data).forEach(([date, data]) => {
-      Object.entries(data).forEach(([name, wc]) => {
-        if (!wordData.has(name)) wordData.set(name, []);
-        wordData.get(name)?.push([date, wc[word]]);
+    if (word !== "") {
+      Object.entries(get().data).forEach(([date, data]) => {
+        Object.entries(data).forEach(([name, wc]) => {
+          if (!wordData.has(name)) wordData.set(name, []);
+          wordData.get(name)?.push([date, wc[word] ?? 0]);
+        });
       });
-    });
+    }
     set({ selectedWord: word, wordData });
   },
   setTopK: (topk) => {
