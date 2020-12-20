@@ -1,0 +1,346 @@
+[
+  {
+    "title": "Portada",
+    "url": "https://gestion.pe/"
+  },
+  {
+    "title": "Blogs",
+    "url": "https://gestion.pe/blog/"
+  },
+  {
+    "title": "Cinco fuerzas contra el soborno y la corrupción",
+    "url": "https://gestion.pe/blog/brujula-de-gestion-empresarial/2020/12/cinco-fuerzas-contra-el-soborno-y-la-corrupcion.html"
+  },
+  {
+    "title": "La bendita inmunidad parlamentaria",
+    "url": "https://gestion.pe/blog/corrupcion-bajo-la-lupa/2020/12/la-bendita-inmunidad-parlamentaria.html"
+  },
+  {
+    "title": "La economía en vilo",
+    "url": "https://gestion.pe/blog/palabradegestion/2020/12/la-economia-en-vilo.html"
+  },
+  {
+    "title": "Una sorpresa navideña: análisis económico del impacto del covid-19 en estas fiestas",
+    "url": "https://gestion.pe/blog/te-lo-cuento-facil/2020/12/una-sorpresa-navidena-analisis-economico-del-impacto-del-covid-19-en-estas-fiestas.html"
+  },
+  {
+    "title": "Economía",
+    "url": "https://gestion.pe/economia"
+  },
+  {
+    "title": "BCR: La autoconstrucción hace que la inversión privada caiga menos de lo esperado",
+    "url": "https://gestion.pe/economia/bcr-la-autoconstruccion-hace-que-la-inversion-privada-caiga-menos-de-lo-esperado-noticia/"
+  },
+  {
+    "title": "Fitch: calificación crediticia de Perú podría depender de resultado de próximas elecciones",
+    "url": "https://gestion.pe/economia/calificacion-de-peru-podria-depender-de-resultado-de-proximas-elecciones-segun-fitch-noticia/"
+  },
+  {
+    "title": "Claudia Cornejo: “Estamos trabajando un marco normativo para las zonas especiales de desarrollo”",
+    "url": "https://gestion.pe/economia/claudia-cornejo-estamos-trabajando-un-marco-normativo-para-las-zonas-especiales-de-desarrollo-noticia/"
+  },
+  {
+    "title": "Conozca la tendencia de precios de electrodomésticos hasta mayo del 2021",
+    "url": "https://gestion.pe/economia/conozca-la-tendencia-de-precios-de-electrodomesticos-hasta-mayo-del-2021-noticia/"
+  },
+  {
+    "title": "Cuatro tareas pendientes para reactivar el sector construcción",
+    "url": "https://gestion.pe/economia/cuatro-tareas-pendientes-para-reactivar-el-sector-construccion-noticia/"
+  },
+  {
+    "title": "Las patentes, el otro problema de los esfuerzos de vacunación",
+    "url": "https://gestion.pe/economia/empresas/las-patentes-el-otro-problema-de-los-esfuerzos-de-vacunacion-noticia/"
+  },
+  {
+    "title": "Texas acusa a Google y Facebook de acuerdo para manipular mercado",
+    "url": "https://gestion.pe/economia/empresas/texas-acusa-a-google-y-facebook-de-acuerdo-para-manipular-mercado-noticia/"
+  },
+  {
+    "title": "Unacem acordó comprar Cementos La Unión en Chile",
+    "url": "https://gestion.pe/economia/empresas/unacem-acordo-comprar-cementos-la-union-en-chile-noticia/"
+  },
+  {
+    "title": "Solo agroindustriales con más de 100 trabajadores pagarán el 9% de aporte a EsSalud",
+    "url": "https://gestion.pe/economia/ley-agraria-essalud-solo-agroindustriales-con-mas-de-100-trabajadores-pagaran-el-9-de-aporte-a-essalud-noticia/"
+  },
+  {
+    "title": "Los CITE impulsan cultivos de kion, aguaymanto y yacón, ante boom de demanda en el exterior",
+    "url": "https://gestion.pe/economia/los-cite-impulsan-cultivos-de-kion-aguaymanto-y-yacon-ante-boom-de-demanda-en-el-exterior-noticia/"
+  },
+  {
+    "title": "Minas evitarán grandes impactos de huelgas, según ejecutivo del cobre",
+    "url": "https://gestion.pe/economia/mercados/minas-evitaran-grandes-impactos-de-huelgas-segun-ejecutivo-del-cobre-noticia/"
+  },
+  {
+    "title": "Las medidas que deben acompañar a la “bala de oro” del MEF, según la OCDE",
+    "url": "https://gestion.pe/economia/ocde-las-medidas-que-deben-acompanar-a-la-bala-de-oro-del-mef-segun-la-ocde-noticia/"
+  },
+  {
+    "title": "Diez estrategias para obtener ingresos pasivos",
+    "url": "https://gestion.pe/fotogalerias/10-estrategias-para-obtener-ingresos-pasivos-noticia/"
+  },
+  {
+    "title": "Países a los que el 2021 no les dará tregua: en riesgo de catástrofe humanitaria",
+    "url": "https://gestion.pe/fotogalerias/paises-a-los-que-el-2021-no-les-dara-tregua-en-riesgo-de-catastrofe-humanitaria-noticia/"
+  },
+  {
+    "title": "¿Cómo terminar el año sin tener tantas deudas?",
+    "url": "https://gestion.pe/gestion-tv/banca-lab/como-terminar-el-ano-sin-tener-tantas-deudas-noticia/"
+  },
+  {
+    "title": "Vayan al grano y aprueben el paquete de ayuda ya",
+    "url": "https://gestion.pe/mundo/eeuu/coronavirus-usa-vayan-al-grano-y-aprueben-el-paquete-de-ayuda-ya-noticia/"
+  },
+  {
+    "title": "Latinoamericanos ricos no pueden pagar la cuenta",
+    "url": "https://gestion.pe/mundo/latinoamericanos-ricos-no-pueden-pagar-la-cuenta-noticia/"
+  },
+  {
+    "title": "Todavía falta transparencia",
+    "url": "https://gestion.pe/opinion/editorial/editorial-de-gestion-todavia-falta-transparencia-minsa-vacunas-mef-coronavirus-pandemia-oms-noticia/"
+  },
+  {
+    "title": "Perú",
+    "url": "https://gestion.pe/peru"
+  },
+  {
+    "title": "Ministro de Educación: “Habrá un nuevo enfoque en la evaluación escolar del 2021”",
+    "url": "https://gestion.pe/peru/minedu-covid-ricardo-cuenca-ministro-de-educacion-habra-un-nuevo-enfoque-en-la-evaluacion-escolar-del-2021-noticia/"
+  },
+  {
+    "title": "TC declara que ley de ascensos automáticos en el sector salud es inconstitucional",
+    "url": "https://gestion.pe/peru/tc-declara-por-unanimidad-que-ley-de-ascensos-automaticos-en-el-sector-salud-es-inconstitucional-nndc-noticia/"
+  },
+  {
+    "title": "Vacuna COVID-19: ensayos clínicos de Sinopharm se reanudan desde hoy en Perú",
+    "url": "https://gestion.pe/peru/vacuna-contra-covid-19-ensayos-clinicos-de-sinopharm-se-reanudan-desde-hoy-en-peru-coronavirus-peru-nndc-noticia/"
+  },
+  {
+    "title": "Plus G",
+    "url": "https://gestion.pe/plusg/"
+  },
+  {
+    "title": "Consultorio Tributario: consecuencias tributarias al derogarse la ley de promoción agraria",
+    "url": "https://gestion.pe/podcast/consultorio-tributario/consultorio-tributario-consecuencias-tributarias-al-derogarse-la-ley-de-promocion-agraria-noticia/"
+  },
+  {
+    "title": "Costes de automóviles eléctricos se acercan a los de gasolina",
+    "url": "https://gestion.pe/tecnologia/costes-de-automoviles-electricos-se-acercan-a-los-de-gasolina-noticia/"
+  },
+  {
+    "title": "¿Cuáles serán los puestos más demandados en 2021?",
+    "url": "https://gestion.pe/tendencias/capital-humano-para-dirigir-empresas-digitalizadas-cuales-seran-los-puestos-mas-demandados-en-2021-nczg-noticia/"
+  },
+  {
+    "title": "Cinco claves de seguridad para tu empresa este fin de año",
+    "url": "https://gestion.pe/tendencias/cinco-claves-de-seguridad-para-tu-empresa-este-fin-de-ano-noticia/"
+  },
+  {
+    "title": "¿Qué pasó en GESTIÓN un día como hoy, 17 de diciembre?",
+    "url": "https://gestion.pe/tendencias/que-paso-en-gestion-un-dia-como-hoy-17-de-diciembre-noticia/"
+  },
+  {
+    "title": "Tu Dinero",
+    "url": "https://gestion.pe/tu-dinero"
+  },
+  {
+    "title": "Así será la remuneración de los feriados y los días no laborables por Navidad y Año Nuevo",
+    "url": "https://gestion.pe/tu-dinero/feriados-no-laborables-navidad-ano-nuevo-asi-sera-el-pago-para-los-feriados-y-los-dias-no-laborables-por-navidad-y-ano-nuevo-noticia/"
+  },
+  {
+    "title": "La apuesta inmobiliaria de quienes cancelaron viajes por vacaciones debido al COVID-19",
+    "url": "https://gestion.pe/tu-dinero/inmobiliarias/la-apuesta-inmobiliaria-de-quienes-cancelaron-viajes-por-vacaciones-debido-al-covid-19-noticia/"
+  },
+  {
+    "title": "Mercados e indicadores",
+    "url": "https://gestion.pe/tu-dinero/mercados-e-indicadores-jueves-17-de-diciembre-de-2020-noticia/"
+  },
+  {
+    "title": "Colombia: Una alternativa a la ciudad - vivir en la ecoaldea",
+    "url": "https://gestion.pe/videos/colombia-una-alternativa-a-la-ciudad-vivir-en-la-ecoaldea-noticia/"
+  },
+  {
+    "title": "El decrecimiento controlado",
+    "url": "https://gestion.pe/videos/el-decrecimiento-controlado-noticia-2/"
+  },
+  {
+    "title": "Gestión & Bolsa: Se vislumbra un resurgimiento económico tras la victoria de Biden",
+    "url": "https://gestion.pe/videos/gestion-bolsa-se-vislumbra-un-resurgimiento-economico-tras-la-victoria-de-biden-noticia/"
+  },
+  {
+    "title": "Mundo G",
+    "url": "https://gestion.pehttp://mundog.gestion.pe/"
+  },
+  {
+    "title": "¿Qué esperar de las Bolsas Mundiales el 2021?",
+    "url": "https://gestion.pe/blog/bullabear-by-ruartes-reports/2020/12/que-esperar-de-las-bolsas-mundiales-el-2021.html"
+  },
+  {
+    "title": "El Acuerdo Previo para agilizar las exploraciones mineras",
+    "url": "https://gestion.pe/blog/mineria-2021/2020/12/el-acuerdo-previo-para-agilizar-las-exploraciones-mineras.html"
+  },
+  {
+    "title": "Impacto de la crisis sanitaria en el desempeño de las empresas mineras",
+    "url": "https://gestion.pe/blog/propuesta-ciudadana/2020/12/impacto-de-la-crisis-sanitaria-en-el-desempeno-de-las-empresas-mineras.html"
+  },
+  {
+    "title": "Los cuatro elementos decisivos a la hora de comprar un auto en la era del COVID",
+    "url": "https://gestion.pe/economia/empresas/auto-google-comprar-un-auto-los-cuatro-elementos-decisivos-a-la-hora-de-comprar-un-auto-en-la-era-del-covid-noticia/"
+  },
+  {
+    "title": "Colombiana Divercity cerró operación en el país debido a la pandemia",
+    "url": "https://gestion.pe/economia/empresas/colombiana-divercity-cerro-operacion-en-el-pais-debido-a-la-pandemia-noticia/"
+  },
+  {
+    "title": "Cuy Móvil reenfocó estrategia y también será soporte de nuevos operadores virtuales",
+    "url": "https://gestion.pe/economia/empresas/cuy-mobile-reenfoco-estrategia-y-tambien-sera-soporte-de-nuevos-operadores-moviles-virtuales-noticia/"
+  },
+  {
+    "title": "Despiertan nuevas ocasiones de consumo en productos de cuidado personal",
+    "url": "https://gestion.pe/economia/empresas/despiertan-nuevas-ocasiones-de-consumo-en-productos-de-cuidado-personal-noticia/"
+  },
+  {
+    "title": "Discovery proyecta llevar contenidos de América TV a competir al streaming",
+    "url": "https://gestion.pe/economia/empresas/discovery-proyecta-llevar-contenidos-de-america-tv-a-competir-al-streaming-noticia/"
+  },
+  {
+    "title": "Los juguetes que serán más demandados en Navidad en el sector retail",
+    "url": "https://gestion.pe/economia/empresas/juegos-de-mesa-y-armables-son-los-juguetes-que-mas-creceran-en-ventas-en-navidad-en-retail-noticia/"
+  },
+  {
+    "title": "Incasur ampliará portafolio de productos e iniciará migración a “cero azúcar",
+    "url": "https://gestion.pe/economia/empresas/peru-incasur-ampliara-portafolio-de-productos-e-iniciara-migracion-a-cero-azucar-noticia/"
+  },
+  {
+    "title": "Proyectos en marcha: parques industriales incrementarán más de 2 millones de m2 en 2021",
+    "url": "https://gestion.pe/economia/empresas/proyectos-en-marcha-parques-industriales-incrementaran-mas-de-2-millones-de-m2-en-2021-e-commerce-almacenes-en-el-sur-noticia/"
+  },
+  {
+    "title": "Conozca cuándo una empresa puede contratar a personal a través de services",
+    "url": "https://gestion.pe/economia/management-empleo/conozca-cuando-una-empresa-puede-contratar-a-personal-con-services-noticia/"
+  },
+  {
+    "title": "Bitcoin debería valer US$ 400,000, según ejecutivo de Guggenheim Investments",
+    "url": "https://gestion.pe/economia/mercados/bitcoin-deberia-valer-us-400000-segun-ejecutivo-de-de-guggenheim-investments-noticia/"
+  },
+  {
+    "title": "Sequía en Brasil podría reducir cosecha de arábica por dos años",
+    "url": "https://gestion.pe/economia/mercados/sequia-en-brasil-podria-reducir-cosecha-de-arabica-por-dos-anos-noticia/"
+  },
+  {
+    "title": "Municipios con dinero para fiscalizar y sin capacidad para gastar",
+    "url": "https://gestion.pe/economia/municipalidades-fiscalizacion-comercio-ambulatorio-municipios-con-dinero-para-fiscalizar-y-sin-capacidad-para-gastar-noticia/"
+  },
+  {
+    "title": "Locatarios de malls cerrarían parte de sus tiendas tras Navidad, para reforzar sus e-commerce",
+    "url": "https://gestion.pe/economia/negocios-de-malls-cerrarian-parte-de-sus-tiendas-tras-navidad-para-reforzar-sus-e-commerce-locatarios-centros-comerciales-noticia/"
+  },
+  {
+    "title": "Las cinco recomendaciones para manejar la ansiedad financiera",
+    "url": "https://gestion.pe/fotogalerias/las-cinco-recomendaciones-para-manejar-la-ansiedad-financiera-noticia/"
+  },
+  {
+    "title": "Argentina sorprendida por precaución de Putin ante vacuna rusa",
+    "url": "https://gestion.pe/mundo/covid-19-argentina-sorprendida-por-precaucion-de-putin-ante-vacuna-rusa-noticia/"
+  },
+  {
+    "title": "Esfuerzos de China por modificar clima son preocupantes",
+    "url": "https://gestion.pe/mundo/esfuerzos-de-china-por-modificar-clima-son-preocupantes-noticia/"
+  },
+  {
+    "title": "¿Por qué se aplazó el controvertido proyecto de ley de Banxico?",
+    "url": "https://gestion.pe/mundo/mexico/por-que-se-aplazo-el-controvertido-proyecto-de-ley-de-banxico-noticia/"
+  },
+  {
+    "title": "Retiros anticipados de AFP es “carga fiscal” a finanzas públicas de Chile, según CEO de Provida",
+    "url": "https://gestion.pe/mundo/retiros-anticipados-de-afp-es-carga-fiscal-a-finanzas-publicas-de-chile-segun-ceo-de-provida-noticia/"
+  },
+  {
+    "title": "En segundo plano",
+    "url": "https://gestion.pe/opinion/editorial/editorial-de-gestion-en-segundo-plano-mef-reactivacion-economica-empleo-pbi-pandemia-oms-noticia/"
+  },
+  {
+    "title": "¿Por qué me cuesta hacer red de contactos?...",
+    "url": "https://gestion.pe/opinion/por-que-me-cuesta-hacer-red-de-contactos-noticia/"
+  },
+  {
+    "title": "La oportunidad en el mercado de la nube que se duplicará a US$ 600 millones al 2023",
+    "url": "https://gestion.pe/tecnologia/tecnologia-cloud-nube-la-oportunidad-en-el-mercado-de-la-nube-que-se-duplicara-a-us-600-millones-al-2023-noticia/"
+  },
+  {
+    "title": "Astrid Gutsche: “Ser empresaria significa lograr el bienestar de todo el staff”",
+    "url": "https://gestion.pe/tendencias/astrid-gutsche-ser-empresaria-significa-lograr-el-bienestar-de-todo-el-staff-noticia/"
+  },
+  {
+    "title": "Luciana Olivares: si una marca no tiene un propósito real y claro, será imposible manifestarse",
+    "url": "https://gestion.pe/tendencias/cafe-mambero-luciana-olivares-si-una-marca-no-tiene-un-proposito-real-y-claro-sera-imposible-manifestare-a-futuro-noticia/"
+  },
+  {
+    "title": "¿Qué pasó en GESTIÓN un día como hoy, 18 de diciembre?",
+    "url": "https://gestion.pe/tendencias/que-paso-en-gestion-un-dia-como-hoy-18-de-diciembre-noticia/"
+  },
+  {
+    "title": "Pagos con QR, ¿qué riesgos tendrán?",
+    "url": "https://gestion.pe/tu-dinero/finanzas-personales/pagos-con-qr-que-riesgos-tendran-noticia/"
+  },
+  {
+    "title": "Préstamos online: cinco señales para detectar si puede ser víctima de una estafa",
+    "url": "https://gestion.pe/tu-dinero/finanzas-personales/prestamos-online-cinco-senales-para-detectar-si-puede-ser-victima-de-una-estafa-noticia/"
+  },
+  {
+    "title": "Mercados e indicadores",
+    "url": "https://gestion.pe/tu-dinero/mercados-e-indicadores-viernes-18-de-diciembre-de-2020-noticia/"
+  },
+  {
+    "title": "Se empiezan a recuperar compras directas con tarjeta desde fines de noviembre",
+    "url": "https://gestion.pe/tu-dinero/se-empiezan-a-recuperar-compras-directas-con-tarjeta-desde-fines-de-noviembre-noticia/"
+  },
+  {
+    "title": "OMS dice que países pobres recibirán vacunas desde el primer trimestre de 2021",
+    "url": "https://gestion.pe/mundo/paises-pobres-recibiran-primeras-vacunas-contra-coronavirus-en-primer-trimestre-de-2021-noticia/"
+  },
+  {
+    "title": "Bermúdez sobre llegada de vacuna: “Me gustaría dar una fecha, pero no podemos mentir”",
+    "url": "https://gestion.pe/peru/violeta-bermudez-sobre-llegada-de-vacuna-me-gustaria-dar-una-fecha-pero-no-podemos-mentir-nndc-noticia/"
+  },
+  {
+    "title": "AFP Integra gana quinta licitación de nuevos afiliados y reducirá de nuevo comisiones",
+    "url": "https://gestion.pe/economia/afp-integra-gana-quinta-licitacion-de-nuevos-afiliados-y-bajara-nuevamente-costo-de-comisiones-nndc-noticia/"
+  },
+  {
+    "title": "BCR corrige proyección de economía peruana: caería 11.5% y ya no 12.7% este año",
+    "url": "https://gestion.pe/economia/bcr-corrige-proyeccion-de-economia-peruana-caeria-115-y-ya-no-127-este-ano-noticia/"
+  },
+  {
+    "title": "Odebrecht cambia su nombre, estigmatizado por los escándalos",
+    "url": "https://gestion.pe/economia/empresas/odebrecht-cambia-su-nombre-estigmatizado-por-los-escandalos-noticia/"
+  },
+  {
+    "title": "¿Cómo elegir el trabajo ideal?",
+    "url": "https://gestion.pe/gestion-tv/20-empleabilidad/como-elegir-el-trabajo-ideal-noticia/"
+  },
+  {
+    "title": "Nokia sacrificará márgenes de redes por crecimiento en 5G",
+    "url": "https://gestion.pe/tecnologia/nokia-sacrificara-margenes-de-redes-por-crecimiento-en-5g-noticia/"
+  },
+  {
+    "title": "Tipo de cambio cierra la semana al alza",
+    "url": "https://gestion.pe/economia/mercados/dolar-tipo-de-cambio-cierra-la-semana-al-alza-y-se-acerca-nuevamente-al-nivel-de-s-360-nndc-noticia/"
+  },
+  {
+    "title": "Reporte del mercado de capitales al 18 de diciembre",
+    "url": "https://gestion.pe/economia/mercados/reporte-del-mercado-de-capitales-al-18-de-diciembre-noticia/"
+  },
+  {
+    "title": "Nueva ley agraria dejaría sin empleo a 200,000 personas, advierten agroexportadores",
+    "url": "https://gestion.pe/economia/nueva-ley-agraria-dejaria-sin-empleo-a-200000-personas-advierten-agroexportadores-noticia/"
+  },
+  {
+    "title": "Colombia adquiere 40 millones de vacunas contra el coronavirus",
+    "url": "https://gestion.pe/mundo/coronavirus-colombia-adquiere-40-millones-de-vacunas-contra-el-covid-19-nndc-noticia/"
+  },
+  {
+    "title": "EE.UU. autoriza la vacuna de Moderna contra el COVID-19",
+    "url": "https://gestion.pe/mundo/eeuu/eeuu-autoriza-la-vacuna-de-moderna-contra-el-covid-19-noticia/"
+  }
+]
