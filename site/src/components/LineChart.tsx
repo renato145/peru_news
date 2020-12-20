@@ -7,7 +7,6 @@ import {
   scaleLinear,
   ScaleTime,
   max,
-  curveNatural,
   axisLeft as _axisLeft,
   select,
 } from "d3";
