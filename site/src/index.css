@@ -11,16 +11,28 @@
   }
 }
 
+@layer components {
+  .leftAxis {
+    @apply font-mono text-gray-500 font-bold transition-all;
+  }
+  .leftAxis .tick line {
+    @apply opacity-0 group-hover:opacity-100 text-gray-300;
+  }
+  .leftAxis .domain {
+    @apply hidden;
+  }
+}
+
 @layer utilities {
   @variants hover {
     .scatter-sm {
-      r: 2
+      r: 2;
     }
     .scatter {
-      r: 4
+      r: 4;
     }
     .scatter-lg {
-      r: 6
+      r: 6;
     }
   }
 }
