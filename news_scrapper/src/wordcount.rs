@@ -18,9 +18,23 @@ lazy_static! {
         .collect();
 }
 
+fn title_case(x: &str) -> String {
+    let mut out = x
+        .get(..1)
+        .map(|o| o.to_uppercase())
+        .unwrap_or("".to_string());
+    out.push_str(
+        x.get(1..)
+            .map(|o| o.to_lowercase())
+            .unwrap_or("".to_string())
+            .as_ref(),
+    );
+    out
+}
+
 fn process_text(text: &String) -> Vec<String> {
-    RE.find_iter(text)
-        .map(|o| o.as_str().to_string())
+    RE.find_iter(&text)
+        .map(|o| title_case(o.as_str()))
         .filter(|o| !STOP_WORDS.contains(&o.to_lowercase()))
         .collect()
 }
