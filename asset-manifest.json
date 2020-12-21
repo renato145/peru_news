@@ -1,8 +1,8 @@
 {
   "files": {
-    "main.css": "/peru_news/static/css/main.13898fe8.chunk.css",
-    "main.js": "/peru_news/static/js/main.cb454d7a.chunk.js",
-    "main.js.map": "/peru_news/static/js/main.cb454d7a.chunk.js.map",
+    "main.css": "/peru_news/static/css/main.c1e5e5c4.chunk.css",
+    "main.js": "/peru_news/static/js/main.cb87ddc7.chunk.js",
+    "main.js.map": "/peru_news/static/js/main.cb87ddc7.chunk.js.map",
     "runtime-main.js": "/peru_news/static/js/runtime-main.c90b1629.js",
     "runtime-main.js.map": "/peru_news/static/js/runtime-main.c90b1629.js.map",
     "static/js/2.4b35a8ec.chunk.js": "/peru_news/static/js/2.4b35a8ec.chunk.js",
@@ -10,13 +10,13 @@
     "static/js/3.3a102178.chunk.js": "/peru_news/static/js/3.3a102178.chunk.js",
     "static/js/3.3a102178.chunk.js.map": "/peru_news/static/js/3.3a102178.chunk.js.map",
     "index.html": "/peru_news/index.html",
-    "static/css/main.13898fe8.chunk.css.map": "/peru_news/static/css/main.13898fe8.chunk.css.map",
+    "static/css/main.c1e5e5c4.chunk.css.map": "/peru_news/static/css/main.c1e5e5c4.chunk.css.map",
     "static/js/2.4b35a8ec.chunk.js.LICENSE.txt": "/peru_news/static/js/2.4b35a8ec.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.c90b1629.js",
     "static/js/2.4b35a8ec.chunk.js",
-    "static/css/main.13898fe8.chunk.css",
-    "static/js/main.cb454d7a.chunk.js"
+    "static/css/main.c1e5e5c4.chunk.css",
+    "static/js/main.cb87ddc7.chunk.js"
   ]
 }
