@@ -18,7 +18,7 @@ interface Props {
 }
 
 const margins = {
-  left: 10,
+  left: 20,
   right: 10,
   top: 10,
   bottom: 10,
@@ -40,7 +40,9 @@ export const LineChart: React.FC<Props> = ({ data, xScale }) => {
     const path = line()(values);
     const axisLeft = _axisLeft(yScale)
       .ticks(2)
-      .tickSize(-width + margins.left - margins.right).tickSizeOuter(0);
+      .tickFormat((o) => (+o % 1 === 0 ? "" + o : ""))
+      .tickSize(-width + margins.left - margins.right)
+      .tickSizeOuter(0);
     return { values, path, timeScale, yScale, axisLeft };
   }, [xScale, width, height, data]);
 
@@ -52,7 +54,7 @@ export const LineChart: React.FC<Props> = ({ data, xScale }) => {
   );
 
   return (
-    <svg ref={ref} className="group w-full my-1 bg-white rounded" height={width / 3}>
+    <svg ref={ref} className="w-full my-1 bg-white rounded" height={width / 3}>
       {path && values ? (
         <>
           <g
