@@ -56,7 +56,7 @@ export const DayLoader: React.FC<Props> = ({
       className={`${className} p-2 transition cursor-pointer ${
         isActive ? "bg-green-600 text-gray-50" : "bg-gray-300"
       } ${isLoading ? "animate-pulse" : ""}`}
-      onClick={() => toogleView()}
+      onClick={toogleView}
     >
       <p className="font-semibold pointer-events-none">{formatDate(date)}</p>
     </div>

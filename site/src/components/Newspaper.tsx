@@ -12,10 +12,12 @@ interface Props extends HTMLProps<HTMLDivElement> {
   xScale: ScaleTime<number, number> | null;
 }
 
-const selector = ({ selectedWord, getTimelineData }: StoreProps) => ({
-  selectedWord,
-  getTimelineData,
-});
+// const selector = ({ selectedWord, getTimelineData }: StoreProps) => ({
+//   selectedWord,
+//   getTimelineData,
+// });
+
+const selector = (props: StoreProps) => props.wordData;
 
 export const Newspaper: React.FC<Props> = ({
   name2url,
@@ -24,17 +26,25 @@ export const Newspaper: React.FC<Props> = ({
   xScale,
   ...props
 }) => {
-  const { selectedWord: word, getTimelineData } = useStore(selector);
+  // const { selectedWord: word, getTimelineData } = useStore(selector);
+  // // eslint-disable-next-line react-hooks/exhaustive-deps
+  // const data = useMemo(() => getTimelineData(name), [
+  //   getTimelineData,
+  //   name,
+  //   word,
+  // ]);
+
+  const wordData = useStore(selector);
   // eslint-disable-next-line react-hooks/exhaustive-deps
-  const data = useMemo(() => getTimelineData(name), [
-    getTimelineData,
-    name,
-    word,
-  ]);
+  // const data = useMemo(() => wordData?.get(name), [name, wordData, xScale]);
+  const data = wordData?.get(name);
 
   return (
     <div {...props}>
-      {(data && xScale !== null && word !== "") ? <LineChart data={data} xScale={xScale} /> : null}
+      {/* {data && xScale !== null && word !== "" ? ( */}
+      {data && xScale !== null ? (
+        <LineChart data={data} xScale={xScale} />
+      ) : null}
       <a
         className="capitalize text-lg font-semibold"
         href={name2url?.get(name)}

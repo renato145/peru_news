@@ -36,6 +36,21 @@ const formatData = (
   ]);
 };
 
+const getWordData = (data: Data, word: string, dates: string[]) => {
+  const wordData = new Map<string, WordData>();
+  if (word !== "") {
+    Object.entries(data)
+      .filter(([date]) => dates.indexOf(date) > -1)
+      .forEach(([date, dayData]) => {
+        Object.entries(dayData).forEach(([name, wc]) => {
+          if (!wordData.has(name)) wordData.set(name, []);
+          wordData.get(name)?.push([date, wc[word] ?? 0]);
+        });
+      });
+  }
+  return wordData;
+};
+
 export type StoreProps = {
   data: Data;
   topk: number;
@@ -57,48 +72,44 @@ export type StoreProps = {
 
 export const useStore = create<StoreProps>((set, get) => ({
   data: {},
-  topk: 0,
+  topk: 0, // top words to show
   activeDates: [],
   activeData: [],
-  selectedWord: "",
-  filters: localStorage.getItem("filters")?.split(",") ?? [],
-  wordData: null,
+  selectedWord: "", // selected word to show timeline chart
+  wordData: null, // data for the timeline chart
+  filters: localStorage.getItem("filters")?.split(",") ?? [], // words to ignore
   add: (wc) => {
     set(({ data }) => ({ data: Object.assign(data, wc) }));
   },
   addActiveDate: (date) => {
-    set(({ data, activeDates, topk, filters }) => {
+    set(({ data, activeDates, topk, filters, selectedWord }) => {
       if (activeDates.indexOf(date) > -1) return {};
       else {
-        const _activeUrls = activeDates.concat(date);
-        if (topk === 0) return { activeDates: _activeUrls };
-        const _activeData = formatData(data, _activeUrls, topk, filters);
-        return { activeDates: _activeUrls, activeData: _activeData };
+        const _activeDates = activeDates.concat(date);
+        if (topk === 0) return { activeDates: _activeDates };
+        const _activeData = formatData(data, _activeDates, topk, filters);
+        const wordData = getWordData(data, selectedWord, _activeDates);
+        return { activeDates: _activeDates, activeData: _activeData, wordData };
       }
     });
   },
   rmActiveDate: (date) => {
-    set(({ data, activeDates, topk, filters }) => {
+    set(({ data, activeDates, topk, filters, selectedWord }) => {
       if (activeDates.indexOf(date) > -1) {
-        const _activeUrls = activeDates.filter((o) => o !== date);
-        if (topk === 0) return { activeDates: _activeUrls };
-        const _activeData = formatData(data, _activeUrls, topk, filters);
-        return { activeDates: _activeUrls, activeData: _activeData };
+        const _activeDates = activeDates.filter((o) => o !== date);
+        if (topk === 0) return { activeDates: _activeDates };
+        const _activeData = formatData(data, _activeDates, topk, filters);
+        const wordData = getWordData(data, selectedWord, _activeDates);
+        return { activeDates: _activeDates, activeData: _activeData, wordData };
       } else return {};
     });
   },
   isActiveDate: (date) => get().activeDates.indexOf(date) > -1,
   setSelectedWord: (word) => {
-    const wordData = new Map<string, WordData>();
-    if (word !== "") {
-      Object.entries(get().data).forEach(([date, data]) => {
-        Object.entries(data).forEach(([name, wc]) => {
-          if (!wordData.has(name)) wordData.set(name, []);
-          wordData.get(name)?.push([date, wc[word] ?? 0]);
-        });
-      });
-    }
-    set({ selectedWord: word, wordData });
+    set(({ data, activeDates }) => {
+      const wordData = getWordData(data, word, activeDates);
+      return { selectedWord: word, wordData };
+    });
   },
   setTopK: (topk) => {
     set(() => ({ topk }));
