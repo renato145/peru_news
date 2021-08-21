@@ -186,5 +186,109 @@
   {
     "title": "Club Digital",
     "url": "https://gestion.pehttp://mundog.gestion.pe/"
+  },
+  {
+    "title": "",
+    "url": "https://gestion.pe"
+  },
+  {
+    "title": "¿Cómo han evolucionado los créditos en los últimos meses y qué se espera para fin de año?",
+    "url": "https://gestion.pe/economia/como-han-evolucionado-los-creditos-en-los-ultimos-meses-y-que-se-espera-para-fin-de-ano-noticia/"
+  },
+  {
+    "title": "Burger King evidencia que crisis laboral eleva costos de carne",
+    "url": "https://gestion.pe/economia/empresas/burger-king-evidencia-que-crisis-laboral-eleva-costos-de-carne-noticia/"
+  },
+  {
+    "title": "Cuatro proyectos hoteleros abrirán este año tras retraso por pandemia",
+    "url": "https://gestion.pe/economia/empresas/cuatro-proyectos-hoteleros-abriran-este-ano-tras-retraso-por-pandemia-noticia/"
+  },
+  {
+    "title": "La estrategia de Beat para acelerar la recuperación",
+    "url": "https://gestion.pe/economia/empresas/la-estrategia-de-beat-para-acelerar-la-recuperacion-noticia/"
+  },
+  {
+    "title": "Incertidumbre política dispara compra de dólares en casas de cambio digitales",
+    "url": "https://gestion.pe/economia/incertidumbre-politica-dispara-compra-de-dolares-en-casas-de-cambio-digitales-noticia/"
+  },
+  {
+    "title": "Los retos que enfrenta la última milla en el comercio electrónico",
+    "url": "https://gestion.pe/economia/mercados/los-retos-que-enfrenta-la-ultima-milla-en-el-comercio-electronico-noticia/"
+  },
+  {
+    "title": "The Economist: Abran las fronteras",
+    "url": "https://gestion.pe/economia/the-economist-abran-las-fronteras-noticia/"
+  },
+  {
+    "title": "¿Un viraje en la compra de vehículos? Qué tanto afecta el contexto político",
+    "url": "https://gestion.pe/economia/un-viraje-en-la-compra-de-vehiculos-que-tanto-afecte-el-contexto-politico-noticia/"
+  },
+  {
+    "title": "El show debe continuar: Broadway vuelve con nuevos inversores y planes audaces",
+    "url": "https://gestion.pe/mundo/eeuu/el-show-debe-continuar-broadway-vuelve-con-nuevos-inversores-y-planes-audaces-noticia/"
+  },
+  {
+    "title": "Un laboratorio de EE.UU. anuncia un “avance histórico” en la fusión nuclear",
+    "url": "https://gestion.pe/mundo/eeuu/un-laboratorio-de-eeuu-anuncia-un-avance-historico-en-la-fusion-nuclear-noticia/"
+  },
+  {
+    "title": "El yihadismo internacional galvanizado por la victoria de los talibanes",
+    "url": "https://gestion.pe/mundo/el-yihadismo-internacional-galvanizado-por-la-victoria-de-los-talibanes-noticia/"
+  },
+  {
+    "title": "Protección de la capa de ozono evitó un mayor calentamiento del planeta, según estudio",
+    "url": "https://gestion.pe/mundo/internacional/proteccion-de-la-capa-de-ozono-evito-un-mayor-calentamiento-del-planeta-segun-estudio-noticia/"
+  },
+  {
+    "title": "Yuca, maíz, café... Los huertos emergen en barriadas de Caracas para completar la dieta",
+    "url": "https://gestion.pe/mundo/internacional/yuca-maiz-cafe-los-huertos-emergen-en-barriadas-de-caracas-para-completar-la-dieta-noticia/"
+  },
+  {
+    "title": "Messi impulsa transmisiones de fútbol de Amazon en Francia",
+    "url": "https://gestion.pe/mundo/messi-impulsa-transmisiones-de-futbol-de-amazon-en-francia-noticia/"
+  },
+  {
+    "title": "México buscará crear reglamentación laboral para economía ‘gig’",
+    "url": "https://gestion.pe/mundo/mexico/mexico-buscara-crear-reglamentacion-laboral-para-economia-gig-noticia/"
+  },
+  {
+    "title": "Vitol y Trafigura enfrentan años de restricción en México",
+    "url": "https://gestion.pe/mundo/mexico/vitol-y-trafigura-enfrentan-anos-de-restriccion-en-mexico-noticia/"
+  },
+  {
+    "title": "¿Quién acoge a los refugiados afganos?",
+    "url": "https://gestion.pe/mundo/quien-acoge-a-los-refugiados-afganos-noticia/"
+  },
+  {
+    "title": "Trueque por alimentos, el recurso de los argentinos ante empobrecimiento generalizado",
+    "url": "https://gestion.pe/mundo/trueque-por-alimentos-el-recurso-de-los-argentinos-ante-empobrecimiento-generalizado-noticia/"
+  },
+  {
+    "title": "Cambio climático: ¿Cómo impacta los riesgos ambientales en las organizaciones?",
+    "url": "https://gestion.pe/opinion/cambio-climatico-como-impacta-los-riesgos-ambientales-en-las-organizaciones-noticia/"
+  },
+  {
+    "title": "Canciller Maúrtua garantizaría que Grupo de Lima recobre fuerza, estiman analistas",
+    "url": "https://gestion.pe/peru/politica/canciller-oscar-maurtua-garantiza-que-grupo-de-lima-recobre-fuerza-senalan-internacionalistas-noticia/"
+  },
+  {
+    "title": "Tacuri: “Estoy en contra de eliminar el Mincetur, no ayudará a reactivar la economía”",
+    "url": "https://gestion.pe/peru/politica/tacuri-en-principio-estoy-en-contra-de-eliminar-el-mincetur-no-ayudara-a-reactivar-la-economia-noticia/"
+  },
+  {
+    "title": "Democracia digital: ¿cómo generar un cambio en la sociedad a partir del uso de Internet?",
+    "url": "https://gestion.pe/tecnologia/democracia-digital-como-generar-un-cambio-en-la-sociedad-a-partir-del-uso-de-internet-noticia/"
+  },
+  {
+    "title": "Inteligia Artificial, Cloud y 5G, las tecnologías para impulsar el talento digital",
+    "url": "https://gestion.pe/tecnologia/inteligia-artificial-cloud-y-5g-las-tecnologias-para-impulsar-el-talento-digital-huawei-profesionales-tic-transformacion-digital-noticia/"
+  },
+  {
+    "title": "¿Qué pasó en GESTIÓN un día como hoy, 21 de Agosto?",
+    "url": "https://gestion.pe/tendencias/que-paso-en-gestion-un-dia-como-hoy-21-de-agosto-noticia-2/"
+  },
+  {
+    "title": "Trabajadores independientes: paso a paso cómo emitir recibos por honorarios desde el celular",
+    "url": "https://gestion.pe/tu-dinero/trabajadores-independientes-paso-a-paso-para-emitir-recibos-por-honorarios-electronicos-desde-el-celular-sunat-rhe-cuarta-categoria-peru-nnda-nnlt-noticia/"
   }
 ]
