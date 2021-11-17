@@ -5,7 +5,11 @@ interface Props {
   data: [string, number][];
 }
 
-const selector = ({ selectedWord, setSelectedWord, addFilter }: StoreProps) => ({
+const selector = ({
+  selectedWord,
+  setSelectedWord,
+  addFilter,
+}: StoreProps) => ({
   selectedWord,
   setSelectedWord,
   addFilter,
@@ -13,17 +17,19 @@ const selector = ({ selectedWord, setSelectedWord, addFilter }: StoreProps) => (
 
 export const WordCount: React.FC<Props> = ({ data }) => {
   const { selectedWord, setSelectedWord, addFilter } = useStore(selector);
-  const width = useMemo(
-    () => data.map(([_, count]) => count).reduce((a, b) => Math.max(a, b)),
-    [data]
-  );
+  const width = useMemo(() => data.length === 0
+    ? 0
+    : data.map(([_, count]) => count).reduce((a, b) => Math.max(a, b)), [data]);
 
   const handleSelect = (word: string) => {
     if (selectedWord !== word) setSelectedWord(word);
     else setSelectedWord("");
   };
 
-  const handleRemove = (ev: React.MouseEvent<HTMLParagraphElement, MouseEvent>, word: string) => {
+  const handleRemove = (
+    ev: React.MouseEvent<HTMLParagraphElement, MouseEvent>,
+    word: string
+  ) => {
     ev.stopPropagation();
     if (selectedWord === word) setSelectedWord("");
     addFilter(word);
@@ -47,7 +53,7 @@ export const WordCount: React.FC<Props> = ({ data }) => {
             </p>
             <p
               className="mr-2 font-bold text-xs cursor-pointer text-gray-400 hover:text-gray-900"
-              onClick={(e) => handleRemove(e,word)}
+              onClick={(e) => handleRemove(e, word)}
             >
               X
             </p>

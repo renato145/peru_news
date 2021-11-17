@@ -1,5 +1,5 @@
 import { ScaleTime } from "d3";
-import React, { HTMLProps, useMemo } from "react";
+import React, { HTMLProps } from "react";
 import { Name2Url } from "../hooks/useName2Url";
 import { StoreProps, useStore } from "../store";
 import { LineChart } from "./LineChart";
